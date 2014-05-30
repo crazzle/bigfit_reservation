@@ -8,7 +8,7 @@ sec_session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Secure Login: Protected Page</title>
+        <title>Reservation System</title>
         <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>

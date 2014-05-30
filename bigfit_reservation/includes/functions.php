@@ -143,6 +143,43 @@ function login_check($mysqli) {
 		return false;
 	}
 }
+function admin_check($mysqli) {
+	// †berprŸfe, ob alle Session-Variablen gesetzt sind
+	if (isset ( $_SESSION ['user_id'], $_SESSION ['username'], $_SESSION ['login_string'] )) {
+
+		$user_id = $_SESSION ['user_id'];
+
+		if ($stmt = $mysqli->prepare ( "SELECT rolle
+                                      FROM members
+                                      WHERE id = ? LIMIT 1" )) {
+                                      // Bind "$user_id" zum Parameter.
+		$stmt->bind_param ( 'i', $user_id );
+		$stmt->execute (); // Execute the prepared query.
+		$stmt->store_result ();
+			
+		if ($stmt->num_rows == 1) {
+			// Wenn es den Benutzer gibt, hole die Variable von result.
+			$stmt->bind_result ( $rolle );
+			$stmt->fetch ();
+			if ($rolle == "admin") {
+				return true;
+			} else {
+				// Nicht eingeloggt
+				return false;
+			}
+		} else {
+			// Nicht eingeloggt
+			return false;
+		}
+		} else {
+			// Nicht eingeloggt
+			return false;
+		}
+	} else {
+		// Nicht eingeloggt
+		return false;
+	}
+}
 function esc_url($url) {
 	if ('' == $url) {
 		return $url;

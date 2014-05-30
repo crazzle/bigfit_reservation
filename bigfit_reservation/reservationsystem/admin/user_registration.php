@@ -1,6 +1,7 @@
 <?php
-include_once 'includes/register.inc.php';
-include_once 'includes/functions.php';
+include_once '../../includes/register.inc.php';
+include_once '../../includes/functions.php';
+sec_session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,15 +13,12 @@ include_once 'includes/functions.php';
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
-        oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
+	<?php if (login_check($mysqli) == true) : ?>
+		<?php if (admin_check($mysqli) == true) :?>
+		<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
+	        oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<h1>Mitglied anlegen</h1>
-        <?php
-								if (! empty ( $error_msg )) {
-									echo $error_msg;
-								}
-								?>
-        <ul>
+	        <ul>
 		<li>Benutzernamen duerfen nur Ziffern, Gro§- und Kleinbuchstaben und
 			Unterstriche enthalten.</li>
 		<li>E-Mail-Adressen muessen ein gueltiges Format haben.</li>
@@ -42,13 +40,25 @@ include_once 'includes/functions.php';
 		password: <input type="password" name="confirmpwd" id="confirmpwd" /><br>
 		<input type="button" value="Register"
 			onclick="return regformhash(this.form,
-                                   this.form.username,
-                                   this.form.email,
-                                   this.form.password,
-                                   this.form.confirmpwd);" />
+	                                   this.form.username,
+	                                   this.form.email,
+	                                   this.form.password,
+	                                   this.form.confirmpwd);" />
 	</form>
 	<p>
-		Return to the <a href="index.php">login page</a>.
+		<a href="../reservation_index.php">zurueck</a>.
 	</p>
+		<?php else : ?>
+            <p>
+		<span class="error">You are not admin.</span>
+		Please <a href="../../index.php">login</a>.
+	</p>
+        <?php endif; ?>
+	 <?php else : ?>
+            <p>
+		<span class="error">You are not logged in.</span>
+		Please <a href="../../index.php">login</a>.
+	</p>
+        <?php endif; ?>
 </body>
 </html>

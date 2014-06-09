@@ -16,6 +16,10 @@ sec_session_start ();
 <body>
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
+		<?php if (isset($_GET['delete'])){
+			$username = $_GET['delete'];
+			delete_user($mysqli, $username);
+		}?>
 	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
         oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<h1>Mitglieder Ÿbersicht</h1>
@@ -34,6 +38,7 @@ sec_session_start ();
 				echo "<td>".$nutzer->getVorname()."</td>";
 				echo "<td>".$nutzer->getNachname()."</td>";
 				echo "<td>".$nutzer->getEmail()."</td>";
+				echo "<td><a href='user_overview.php?delete=".$nutzer->getId()."'>Loeschen</a></td>";
 				echo "</tr>";
 			 }?>
 	</table>

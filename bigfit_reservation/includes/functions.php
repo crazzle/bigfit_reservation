@@ -20,7 +20,7 @@ function sec_session_start() {
 }
 function login($email, $password, $mysqli) {
 	// Das Benutzen vorbereiteter Statements verhindert SQL-Injektion.
-	if ($stmt = $mysqli->prepare ( "SELECT id, username, password, salt
+	if ($stmt = $mysqli->prepare ( "SELECT id, password, salt
         FROM members
        WHERE email = ?
         LIMIT 1" )) {
@@ -29,7 +29,7 @@ function login($email, $password, $mysqli) {
 		$stmt->store_result ();
 		
 		// hole Variablen von result.
-		$stmt->bind_result ( $user_id, $username, $db_password, $salt );
+		$stmt->bind_result ( $user_id, $db_password, $salt );
 		$stmt->fetch ();
 		
 		// hash das Passwort mit dem eindeutigen salt.
@@ -53,8 +53,6 @@ function login($email, $password, $mysqli) {
 					$user_id = preg_replace ( "/[^0-9]+/", "", $user_id );
 					$_SESSION ['user_id'] = $user_id;
 					// XSS-Schutz, denn eventuell wir der Wert gedruckt
-					$username = preg_replace ( "/[^a-zA-Z0-9_\-]+/", "", $username );
-					$_SESSION ['username'] = $username;
 					$_SESSION ['login_string'] = hash ( 'sha512', $password . $user_browser );
 					// Login erfolgreich.
 					return true;
@@ -100,11 +98,10 @@ function checkbrute($user_id, $mysqli) {
 }
 function login_check($mysqli) {
 	// Überprüfe, ob alle Session-Variablen gesetzt sind
-	if (isset ( $_SESSION ['user_id'], $_SESSION ['username'], $_SESSION ['login_string'] )) {
+	if (isset ( $_SESSION ['user_id'], $_SESSION ['login_string'] )) {
 		
 		$user_id = $_SESSION ['user_id'];
 		$login_string = $_SESSION ['login_string'];
-		$username = $_SESSION ['username'];
 		
 		// Hole den user-agent string des Benutzers.
 		$user_browser = $_SERVER ['HTTP_USER_AGENT'];
@@ -145,7 +142,7 @@ function login_check($mysqli) {
 }
 function admin_check($mysqli) {
 	// Überprüfe, ob alle Session-Variablen gesetzt sind
-	if (isset ( $_SESSION ['user_id'], $_SESSION ['username'], $_SESSION ['login_string'] )) {
+	if (isset ( $_SESSION ['user_id'], $_SESSION ['login_string'] )) {
 
 		$user_id = $_SESSION ['user_id'];
 

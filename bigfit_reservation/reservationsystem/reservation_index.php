@@ -12,19 +12,18 @@ sec_session_start();
 <body>
 	<p>Reservationssystem</p>
         <?php if (login_check($mysqli) == true) : ?>
-            <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
+            <p>Wilkommen!</p>
 			
 			<?php if (admin_check($mysqli) == true) : ?>
 			<p>
-				For User management go to <a href="admin/user_management.php">User
-					Management</a>
+				Fuer die Verwaltung der Mitglieder gehe auf <a href="admin/user_management.php">Mitgliederverwaltung</a>
 			</p>
 			<?php endif; ?> 
-			<p>If you are done, please <a href="../includes/logout.php">log out</a>.</p>
+			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>
             <p>
-			<span class="error">You are not logged in.</span> Please <a
-				href="../login.php">login</a>.
+			<span class="error">Du bist nicht eingeloggt.</span> Bitte <a
+				href="../login.php">einloggen</a>.
 			</p>
         <?php endif; ?>
     </body>

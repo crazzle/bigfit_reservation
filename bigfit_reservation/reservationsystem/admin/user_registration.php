@@ -8,8 +8,8 @@ sec_session_start();
 <head>
 <meta charset="UTF-8">
 <title>Mitglied anlegen</title>
-<script type="text/JavaScript" src="js/sha512.js"></script>
-<script type="text/JavaScript" src="js/forms.js"></script>
+<script type="text/JavaScript" src="../../js/sha512.js"></script>
+<script type="text/JavaScript" src="../../js/forms.js"></script>
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
@@ -19,13 +19,13 @@ sec_session_start();
 	        oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<h1>Mitglied anlegen</h1>
 	        <ul>
-		<li>Benutzernamen duerfen nur Ziffern, Gro§- und Kleinbuchstaben und
+		<li>Benutzernamen duerfen nur Ziffern, Gross- und Kleinbuchstaben und
 			Unterstriche enthalten.</li>
 		<li>E-Mail-Adressen muessen ein gueltiges Format haben.</li>
 		<li>Passwoerter muessen mindest sechs Zeichen lang sein.</li>
 		<li>Passwoerter muessen enthalten
 			<ul>
-				<li>mindestens einen Gro§buchstaben (A..Z)</li>
+				<li>mindestens einen Grossbuchstaben (A..Z)</li>
 				<li>mindestens einen Kleinbuchstabenr (a..z)</li>
 				<li>mindestens eine Ziffer (0..9)</li>
 			</ul>
@@ -34,30 +34,32 @@ sec_session_start();
 	</ul>
 	<form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>"
 		method="post" name="registration_form">
-		Username: <input type='text' name='username' id='username' /><br>
-		Email: <input type="text" name="email" id="email" /><br> Password: <input
-			type="password" name="password" id="password" /><br> Confirm
-		password: <input type="password" name="confirmpwd" id="confirmpwd" /><br>
+		Vorname: <input type='text' name='vorname' id='vorname' /><br>
+		Nachname: <input type='text' name='nachname' id='nachname' /><br>
+		Email: <input type="text" name="email" id="email" /><br> 
+		Passwort: <input type="password" name="password" id="password" /><br> 
+		Passwort bestaetigen: <input type="password" name="confirmpwd" id="confirmpwd" /><br>
 		<input type="button" value="Register"
 			onclick="return regformhash(this.form,
-	                                   this.form.username,
+	                                   this.form.vorname,
+	                                   this.form.nachname,
 	                                   this.form.email,
 	                                   this.form.password,
 	                                   this.form.confirmpwd);" />
 	</form>
 	<p>
-		<a href="../reservation_index.php">zurueck</a>.
+		<a href="../reservation_index.php">zurueck zur Startseite</a>.
 	</p>
 		<?php else : ?>
             <p>
-		<span class="error">You are not admin.</span>
-		Please <a href="../../index.php">login</a>.
+		<span class="error">Du bist kein Administrator.</span>
+		Bitte als Administrator <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
 	 <?php else : ?>
             <p>
-		<span class="error">You are not logged in.</span>
-		Please <a href="../../index.php">login</a>.
+		<span class="error">Du bist nicht eingeloggt.</span>
+		Bitte <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
 </body>

@@ -18,20 +18,22 @@ sec_session_start();
 	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
         oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<h1>Mitglied anlegen</h1>
-    <p>For User Registration go to <a href="user_registration.php">User Anlegen</a></p>
+    <p>Um Mitglieder anzulegen, gehe auf <a href="user_registration.php">Mitglied Anlegen</a></p>
+    <h1>Mitgliederuebersicht</h1>
+    <p>Fuer eine Mitgliedsuebersicht, gehe auf <a href="user_overview.php">Mitgliedsuebersicht</a></p>
 	<p>
 		<a href="../reservation_index.php">zurueck</a>.
 	</p>
 	<?php else : ?>
             <p>
-		<span class="error">You are not admin.</span>
-		Please <a href="../../index.php">login</a>.
+		<span class="error">Du bist kein Administrator.</span>
+		Bitte als Administrator <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
 	 <?php else : ?>
             <p>
-		<span class="error">You are not logged in.</span>
-		Please <a href="../../index.php">login</a>.
+		<span class="error">Du bist nicht eingeloggt.</span>
+		Bitte <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
 </body>

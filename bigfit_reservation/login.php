@@ -35,7 +35,6 @@ if (login_check($mysqli) == true) {
                    value="Login" 
                    onclick="formhash(this.form, this.form.password);" /> 
         </form>
-        <p>If you don't have a login, please <a href="register.php">register</a></p>
         <p>You are currently logged <?php echo $logged ?>.</p>
     </body>
 </html>

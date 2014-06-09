@@ -18,6 +18,10 @@ sec_session_start();
 			<p>
 				Fuer die Verwaltung der Mitglieder gehe auf <a href="admin/user_management.php">Mitgliederverwaltung</a>
 			</p>
+			
+			<p>
+				Fuer die Verwaltung der Termine gehe auf <a href="admin/termine_erstellen.php">Terminverwaltung</a>
+			</p>
 			<?php endif; ?> 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>

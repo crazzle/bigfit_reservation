@@ -1,7 +1,7 @@
 <?php
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
-include 'user/user_db_helper.php';
+include_once '../includes/user_db_helper.php';
 sec_session_start();
 ?>
 <!DOCTYPE html>

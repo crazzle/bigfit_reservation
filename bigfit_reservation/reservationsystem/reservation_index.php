@@ -1,6 +1,7 @@
 <?php
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
+include 'user/userprofil.php';
 sec_session_start();
 ?>
 <!DOCTYPE html>
@@ -11,8 +12,11 @@ sec_session_start();
 </head>
 <body>
 	<p>Reservationssystem</p>
-        <?php if (login_check($mysqli) == true) : ?>
-            <p>Wilkommen!</p>
+        <?php if (login_check($mysqli) == true) :
+        
+       		$user = load_user($mysqli);
+        	echo "Willkommen ".$user [1]." ".$user [2]."!" ?>
+            
 			
 			<?php if (admin_check($mysqli) == true) : ?>
 			<p>
@@ -22,7 +26,11 @@ sec_session_start();
 			<p>
 				Fuer die Verwaltung der Termine gehe auf <a href="admin/termine_erstellen.php">Terminverwaltung</a>
 			</p>
-			<?php endif; ?> 
+			
+			<?php
+			endif;
+			
+			?> 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>
             <p>

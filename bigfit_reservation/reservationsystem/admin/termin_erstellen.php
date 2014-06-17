@@ -16,17 +16,10 @@ sec_session_start ();
 <script src="../../js/jquery-1.10.2.js"></script>
 <script src="../../js/jquery-ui-1.10.4.custom.js"></script>
 <script src="../../js/jquery.ui.datepicker-de.js"></script>
-<script src="../../js/ui.timepickr.js"></script>
 <script>
 	$(function() {
 		$( "#datepicker" ).datepicker();
 	});
-</script>
-<script>
-$(function(){
-  $('#timepicker-1').timepickr().focus();
-  $('#timepicker-2').timepickr({convention:12});
-});
 </script>
 </head>
 <body>

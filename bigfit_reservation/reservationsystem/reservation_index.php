@@ -24,7 +24,7 @@ sec_session_start();
 			</p>
 			
 			<p>
-				Fuer die Verwaltung der Termine gehe auf <a href="admin/termine_erstellen.php">Terminverwaltung</a>
+				Fuer die Verwaltung der Termine gehe auf <a href="admin/termin_erstellen.php">Terminverwaltung</a>
 			</p>
 			
 			<?php endif;?>

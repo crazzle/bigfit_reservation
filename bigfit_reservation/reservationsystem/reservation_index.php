@@ -27,10 +27,12 @@ sec_session_start();
 				Fuer die Verwaltung der Termine gehe auf <a href="admin/termine_erstellen.php">Terminverwaltung</a>
 			</p>
 			
-			<?php
-			endif;
+			<?php endif;?>
 			
-			?> 
+			<p>
+				Fuer die Aenderungen auf deinem Profil gehe auf <a href="user/userprofil.php">Profil</a>
+			</p>
+			 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>
             <p>

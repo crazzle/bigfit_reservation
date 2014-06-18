@@ -65,13 +65,12 @@ sec_session_start ();
 <?php
 if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] ) ) {
 	$datum = $_POST ['date'];
+	$formattedDate = DateTime::createFromFormat('d.m.Y', $datum)->format('Y-m-d');
 	$begin = $_POST ['begin'];
 	$end = $_POST ['end'];
 	$memberCount = $_POST ['memberCount'];
-	echo "Das Datum ist: " . $datum;
-	echo "Begonnen wird um: " . $begin;
-	echo "Ende ist um: " . $end;
-	echo "Teilnehmer: " . $memberCount;
+	add_termin($mysqli, $formattedDate, $memberCount, $begin, $end);
+	echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;  
 }
 
 ?>

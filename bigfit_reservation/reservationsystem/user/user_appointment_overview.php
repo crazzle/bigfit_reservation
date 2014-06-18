@@ -32,6 +32,7 @@ sec_session_start ();
 	<td>Beginn</td>
 	<td>Ende</td>
 	<td>Max. Teilnehmer</td>
+	<td>Anzahl Teilnehmer</td>
 	</tr>
 	<?php
 			foreach ( upcoming_appointments ( $mysqli, 6 ) as $appointment ) {
@@ -41,6 +42,7 @@ sec_session_start ();
 				echo "<td>".$appointment->getEnde()."</td>";
 				echo "<td>".$appointment->getMaxAnzahl()."</td>";
 				echo "<td><a href='user_appointment_overview.php?apply=".$appointment->getId()."'>Anmelden</a></td>";
+				echo "<td><a href='user_appointment_detail.php?id=".$appointment->getId()."'>Details</a></td>";
 				echo "</tr>";
 			 }?>
 	</table>

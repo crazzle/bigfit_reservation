@@ -72,7 +72,7 @@ sec_session_start ();
 			$begin = $_POST ['begin'];
 			$end = $_POST ['end'];
 			$memberCount = $_POST ['memberCount'];
-			add_termin ( $mysqli, $formattedDate, $memberCount, $begin, $end );
+			add_appointment ( $mysqli, $formattedDate, $memberCount, $begin, $end );
 			echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;
 		}
 		

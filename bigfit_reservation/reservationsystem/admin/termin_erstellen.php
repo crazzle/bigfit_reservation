@@ -12,7 +12,6 @@ sec_session_start ();
 <title>Termin anlegen</title>
 <link rel="stylesheet"
 	href="../../css/ui-lightness/jquery-ui-1.10.4.custom.css">
-<link rel="stylesheet" href="../../css/ui-lightness/ui.timepickr.css">
 <script src="../../js/jquery-1.10.2.js"></script>
 <script src="../../js/jquery-ui-1.10.4.custom.js"></script>
 <script src="../../js/jquery.ui.datepicker-de.js"></script>
@@ -20,27 +19,72 @@ sec_session_start ();
 	$(function() {
 		$( "#datepicker" ).datepicker();
 	});
-</script>
+
+	function checkInfos(){
+		var pattTime = new RegExp("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$","i");
+		var begin = document.getElementById("beginnTime").value;
+		var checkBegin = pattTime.test(begin);
+		var end = document.getElementById("endeTime").value;
+		var checkEnd = pattTime.test(end);
+
+		var pattDate = new RegExp("^\\d{2}\\.\\d{2}\\.\\d{4}$","i");
+		var date = document.getElementById("datepicker").value;
+		var checkDate = pattDate.test(date);
+
+		var pattMember = new RegExp("^\\d+$","i");
+		var member = document.getElementById("memberCount").value;
+		var checkMember = pattMember.test(member);
+		
+		if(!checkDate){
+			document.getElementById("wrongDate").style.display = ""; 
+		}else{
+			document.getElementById("wrongDate").style.display = "none"; 
+		}
+		if(!checkBegin){
+			document.getElementById("wrongBeginn").style.display = ""; 
+		}else{
+			document.getElementById("wrongBeginn").style.display = "none"; 
+		}
+		if (!checkEnd){
+			document.getElementById("wrongEnde").style.display = ""; 
+		}else{
+			document.getElementById("wrongEnde").style.display = "none"; 
+		} 
+		if (!checkMember){
+			document.getElementById("wrongCount").style.display = ""; 
+		}else{
+			document.getElementById("wrongCount").style.display = "none"; 
+		} 
+		if (checkBegin && checkEnd && checkDate && checkMember){
+			document.getElementById("terminErstellenForm").submit();
+		}
+	};
+	</script>
 </head>
 <body>
 <?php
-if (isset ( $_POST ['date'] )) {
+if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] ) ) {
 	$datum = $_POST ['date'];
+	$begin = $_POST ['begin'];
+	$end = $_POST ['end'];
+	$memberCount = $_POST ['memberCount'];
 	echo "Das Datum ist: " . $datum;
+	echo "Begonnen wird um: " . $begin;
+	echo "Ende ist um: " . $end;
+	echo "Teilnehmer: " . $memberCount;
 }
 
 ?>
-<form action='termin_erstellen.php' method='post'>
-		<p>
-			Datum auswaehlen: <input type="text" id="datepicker" name='date'>
-		</p>
-		<p>
-			Beginn:<input type="text" id="timepicker" name='begin'>
-		</p>
-		<p>
-			Ende:<input type="text" id="timepicker" name='end'>
-		</p>
-		<input type='submit' value='Termin anlegen'>
+<form action='termin_erstellen.php' method='post'
+		id="terminErstellenForm">
+		<div>Datum auswaehlen:<input type="text" id="datepicker" name='date'><div id="wrongDate" style="display: none;">Bitte Datum im Format DD.MM.YYYY eingeben.</div></div>
+		
+		<div>Beginn: <input type="text" id="beginnTime" name='begin'><div id="wrongBeginn" style="display: none;">Bitte Uhrzeit im Format HH:MM eingeben.</div></div>
+		
+		<div>Ende:<input type="text" id="endeTime" name='end'><div id="wrongEnde" style="display: none;">Bitte Uhrzeit im Format HH:MM eingeben.</div></div>
+		
+		<div>Max. Teilnehmer:<input type="text" id="memberCount" name='memberCount' value="15"><div id="wrongCount" style="display: none;">Bitte eine Zahl eingeben.</div></div>
 	</form>
+	<input type='button' value='Termin anlegen' onclick="checkInfos()">
 </body>
 </html>

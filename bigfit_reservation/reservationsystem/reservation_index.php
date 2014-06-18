@@ -24,11 +24,7 @@ sec_session_start();
 			</p>
 			
 			<p>
-				Fuer die Verwaltung der Termine gehe auf <a href="admin/appointment_creation.php">Terminverwaltung</a>
-			</p>
-			
-			<p>
-				Fuer die Uebersicht der Termine gehe auf <a href="admin/appointment_overview.php">Terminuebersicht</a>
+				Fuer die Verwaltung der Termine gehe auf <a href="admin/appointment_management.php">Terminverwaltung</a>
 			</p>
 			
 			<?php endif;?>

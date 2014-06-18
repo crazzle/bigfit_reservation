@@ -79,6 +79,9 @@ sec_session_start ();
 		?>
 <form action='termin_erstellen.php' method='post'
 		id="terminErstellenForm">
+		<h1>Termin erstellen</h1>
+		<p>
+	
 		<div>
 			Datum auswaehlen:<input type="text" id="datepicker" name='date'>
 			<div id="wrongDate" style="display: none;">Bitte Datum im Format

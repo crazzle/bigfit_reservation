@@ -62,28 +62,62 @@ sec_session_start ();
 	</script>
 </head>
 <body>
+<?php if (login_check($mysqli) == true) : ?>
+		<?php if (admin_check($mysqli) == true) :?>
 <?php
-if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] ) ) {
-	$datum = $_POST ['date'];
-	$formattedDate = DateTime::createFromFormat('d.m.Y', $datum)->format('Y-m-d');
-	$begin = $_POST ['begin'];
-	$end = $_POST ['end'];
-	$memberCount = $_POST ['memberCount'];
-	add_termin($mysqli, $formattedDate, $memberCount, $begin, $end);
-	echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;  
-}
 
-?>
+		if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] )) {
+			$datum = $_POST ['date'];
+			$formattedDate = DateTime::createFromFormat ( 'd.m.Y', $datum )->format ( 'Y-m-d' );
+			$begin = $_POST ['begin'];
+			$end = $_POST ['end'];
+			$memberCount = $_POST ['memberCount'];
+			add_termin ( $mysqli, $formattedDate, $memberCount, $begin, $end );
+			echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;
+		}
+		
+		?>
 <form action='termin_erstellen.php' method='post'
 		id="terminErstellenForm">
-		<div>Datum auswaehlen:<input type="text" id="datepicker" name='date'><div id="wrongDate" style="display: none;">Bitte Datum im Format DD.MM.YYYY eingeben.</div></div>
-		
-		<div>Beginn: <input type="text" id="beginnTime" name='begin'><div id="wrongBeginn" style="display: none;">Bitte Uhrzeit im Format HH:MM eingeben.</div></div>
-		
-		<div>Ende:<input type="text" id="endeTime" name='end'><div id="wrongEnde" style="display: none;">Bitte Uhrzeit im Format HH:MM eingeben.</div></div>
-		
-		<div>Max. Teilnehmer:<input type="text" id="memberCount" name='memberCount' value="15"><div id="wrongCount" style="display: none;">Bitte eine Zahl eingeben.</div></div>
+		<div>
+			Datum auswaehlen:<input type="text" id="datepicker" name='date'>
+			<div id="wrongDate" style="display: none;">Bitte Datum im Format
+				DD.MM.YYYY eingeben.</div>
+		</div>
+
+		<div>
+			Beginn: <input type="text" id="beginnTime" name='begin'>
+			<div id="wrongBeginn" style="display: none;">Bitte Uhrzeit im Format
+				HH:MM eingeben.</div>
+		</div>
+
+		<div>
+			Ende:<input type="text" id="endeTime" name='end'>
+			<div id="wrongEnde" style="display: none;">Bitte Uhrzeit im Format
+				HH:MM eingeben.</div>
+		</div>
+
+		<div>
+			Max. Teilnehmer:<input type="text" id="memberCount"
+				name='memberCount' value="15">
+			<div id="wrongCount" style="display: none;">Bitte eine Zahl eingeben.</div>
+		</div>
 	</form>
 	<input type='button' value='Termin anlegen' onclick="checkInfos()">
+	<p>
+		<a href="../reservation_index.php">zurueck zur Startseite</a>.
+	</p>
+	<?php else : ?>
+            <p>
+		<span class="error">Du bist kein Administrator.</span> Bitte als
+		Administrator <a href="../../index.php">einloggen</a>.
+	</p>
+        <?php endif; ?>
+	 <?php else : ?>
+            <p>
+		<span class="error">Du bist nicht eingeloggt.</span> Bitte <a
+			href="../../index.php">einloggen</a>.
+	</p>
+        <?php endif; ?>
 </body>
 </html>

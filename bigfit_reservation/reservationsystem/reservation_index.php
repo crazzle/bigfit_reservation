@@ -32,6 +32,10 @@ sec_session_start();
 			<p>
 				Fuer die Aenderungen auf deinem Profil gehe auf <a href="user/userprofil.php">Profil</a>
 			</p>
+			
+			<p>
+				Um dich fuer Termine anzumelden gehe auf <a href="user/user_appointment_overview.php">Zu Terminen anmelden</a>
+			</p>
 			 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>

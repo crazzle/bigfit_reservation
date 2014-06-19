@@ -30,7 +30,7 @@ sec_session_start();
 			<?php endif;?>
 			
 			<p>
-				Fuer die Aenderungen auf deinem Profil gehe auf <a href="user/userprofil.php">Profil</a>
+				Fuer die Aenderungen auf deinem Profil gehe auf <a href="user/userprofile.php">Profil</a>
 			</p>
 			
 			<p>

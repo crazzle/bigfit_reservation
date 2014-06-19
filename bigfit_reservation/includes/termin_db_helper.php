@@ -28,9 +28,12 @@ function all_appointments($mysqli) {
 		return false;
 	}
 }
-function upcoming_appointments($mysqli, $count) {
+function upcoming_appointments($mysqli, $count, $user_id) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
-			FROM termine where aktiv = 1 order by datum asc limit 0, ".$count )) {
+			FROM termine where aktiv = 1 
+			and id not in 
+			(select termin_id from members_termine_anmeldung where termin_id = id and members_id = ".$user_id.") 
+			order by datum asc limit 0, ".$count )) {
 			$stmt->execute (); // Execute the prepared query.
 
 			/* bind variables to prepared statement */
@@ -51,6 +54,15 @@ function delete_appointment($mysqli, $id) {
 	if ($stmt = $mysqli->prepare ( "UPDATE termine SET aktiv = 0 WHERE id = ?" )) {
 		if ($stmt) {
 			$stmt->bind_param('s', $id);
+			$stmt->execute (); // Execute the prepared query.
+		}
+	}
+}
+
+function apply_appointment($mysqli, $id, $user_id) {
+	if ($stmt = $mysqli->prepare ( "INSERT INTO members_termine_anmeldung (members_id, termin_id) VALUES (?, ?)" )) {
+		if ($stmt) {
+			$stmt->bind_param('ss', $user_id, $id);
 			$stmt->execute (); // Execute the prepared query.
 		}
 	}

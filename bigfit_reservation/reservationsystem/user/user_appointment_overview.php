@@ -21,7 +21,8 @@ sec_session_start ();
 		<?php if (admin_check($mysqli) == true) :?>
 		<?php if (isset($_GET['apply'])){
 			$id = $_GET['apply'];
-			apply_appointment($mysqli, $id);
+			apply_appointment($mysqli, $id, $_SESSION['user_id']);
+			echo "Zu Termin angemeldet.";
 		}?>
 
 	<h1>Terminuebersicht</h1>
@@ -35,7 +36,7 @@ sec_session_start ();
 	<td>Anzahl Teilnehmer</td>
 	</tr>
 	<?php
-			foreach ( upcoming_appointments ( $mysqli, 6 ) as $appointment ) {
+			foreach ( upcoming_appointments ( $mysqli, 6, $_SESSION['user_id']) as $appointment ) {
 				echo "<tr>";
 				echo "<td>".$appointment->getDatum()."</td>";
 				echo "<td>".$appointment->getBeginn()."</td>";

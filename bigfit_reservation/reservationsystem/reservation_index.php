@@ -34,7 +34,11 @@ sec_session_start();
 			</p>
 			
 			<p>
-				Um dich fuer Termine anzumelden gehe auf <a href="user/user_appointment_overview.php">Zu Terminen anmelden</a>
+				Um dich fuer Termine anzumelden gehe auf <a href="user/user_appointment_applies.php">Zu Terminen anmelden</a>
+			</p>
+			
+			<p>
+				Um die Termine zu sehen, fuer die du dich angemeldet hast gehe auf <a href="user/user_appointment_overview.php">Meine Termine</a>
 			</p>
 			 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>

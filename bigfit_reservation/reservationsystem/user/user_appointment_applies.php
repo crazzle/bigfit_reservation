@@ -9,7 +9,7 @@ sec_session_start ();
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Angemeldete Termine</title>
+<title>Termin anlegen</title>
 <link rel="stylesheet"
 	href="../../css/ui-lightness/jquery-ui-1.10.4.custom.css">
 <script src="../../js/jquery-1.10.2.js"></script>
@@ -18,32 +18,36 @@ sec_session_start ();
 </head>
 <body>
 <?php if (login_check($mysqli) == true) : ?>
-		<?php if (isset($_GET['unapply'])){
+		<?php if (isset($_GET['apply'])){
 			$id = $_GET['apply'];
-			unsubscribed_upcoming_appointment($mysqli, $id, $_SESSION['user_id']);
-			echo "Vom Termin abgemeldet.";
+			apply_appointment($mysqli, $id, $_SESSION['user_id']);
+			echo "Zu Termin angemeldet.";
 		}?>
 
-	<h1>Angemeldete Termine</h1>
+	<h1>Terminuebersicht</h1>
 	<p>
 	<table>
 	<tr>
 	<td>Datum</td>
 	<td>Beginn</td>
 	<td>Ende</td>
-	<td>Max. Teilnehmer</td>
 	<td>Anzahl Teilnehmer</td>
+	<td>Max. Anzahl Teilnehmer</td>
 	</tr>
 	<?php
-			foreach ( subscribed_upcoming_appointments ( $mysqli, $_SESSION['user_id']) as $appointment ) {
-				$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());				
+			foreach ( upcoming_appointments ( $mysqli, 6, $_SESSION['user_id']) as $appointment ) {
+				$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());
 				echo "<tr>";
 				echo "<td>".$appointment->getDatum()."</td>";
 				echo "<td>".$appointment->getBeginn()."</td>";
 				echo "<td>".$appointment->getEnde()."</td>";
-				echo "<td>".$appointment->getMaxAnzahl()."</td>";
 				echo "<td>".$subscribers."</td>";
-				echo "<td><a href='user_appointment_overview.php?unapply=".$appointment->getId()."'>Abmelden</a></td>";
+				echo "<td>".$appointment->getMaxAnzahl()."</td>";
+				if($subscribers < $appointment->getMaxAnzahl()){
+					echo "<td><a href='user_appointment_applies.php?apply=".$appointment->getId()."'>Anmelden</a></td>";
+				}else{
+					echo "<td>Anmelden</td>";
+				}
 				echo "<td><a href='user_appointment_detail.php?id=".$appointment->getId()."'>Details</a></td>";
 				echo "</tr>";
 			 }?>

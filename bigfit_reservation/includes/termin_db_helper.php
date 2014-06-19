@@ -11,7 +11,7 @@ function add_appointment($mysqli, $datum, $teilnehmer, $beginn, $ende) {
 }
 function all_appointments($mysqli) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
-		FROM termine where aktiv = 1 order by datum desc" )) {
+		FROM termine order by datum desc" )) {
 		$stmt->execute (); 
 
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );
@@ -28,8 +28,7 @@ function all_appointments($mysqli) {
 }
 function upcoming_appointments($mysqli, $count, $user_id) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
-		FROM termine where aktiv = 1 
-		and id not in 
+		FROM termine WHERE id not in 
 		(select termin_id from members_termine_anmeldung where termin_id = id and members_id = ".$user_id.") 
 		order by datum desc limit 0, ".$count )) {
 		$stmt->execute ();
@@ -47,7 +46,7 @@ function upcoming_appointments($mysqli, $count, $user_id) {
 	}
 }
 function delete_appointment($mysqli, $id) {
-	if ($stmt = $mysqli->prepare ( "UPDATE termine SET aktiv = 0 WHERE id = ?" )) {
+	if ($stmt = $mysqli->prepare ( "DELETE FROM termine WHERE id = ?" )) {
 		if ($stmt) {
 			$stmt->bind_param('s', $id);
 			$stmt->execute ();
@@ -64,8 +63,7 @@ function apply_appointment($mysqli, $id, $user_id) {
 }
 function subscribed_upcoming_appointments($mysqli, $user_id) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
-		FROM termine where aktiv = 1
-		and id in
+		FROM termine WHERE id in
 		(select termin_id from members_termine_anmeldung where termin_id = id and members_id = ".$user_id.")
 		order by datum desc")) {
 		$stmt->execute ();
@@ -91,7 +89,9 @@ function unsubscribe_upcoming_appointment($mysqli, $id, $user_id) {
 	}
 }
 function getCurrentSubscriberCountForAppointment($mysqli, $id){
-	if ($stmt = $mysqli->prepare ( "SELECT count(termin_id) FROM members_termine_anmeldung where termin_id = ".$id)) {
+	if ($stmt = $mysqli->prepare ( "SELECT count(termin_id) 
+			FROM members_termine_anmeldung 
+			WHERE termin_id = ".$id)) {
 		$stmt->execute ();
 		mysqli_stmt_bind_result ( $stmt, $count);
 		mysqli_stmt_fetch ( $stmt );

@@ -24,15 +24,19 @@ sec_session_start();
 			</p>
 			
 			<p>
-				Fuer die Verwaltung der Termine gehe auf <a href="admin/termine_erstellen.php">Terminverwaltung</a>
+				Fuer die Verwaltung der Termine gehe auf <a href="admin/appointment_management.php">Terminverwaltung</a>
 			</p>
 			
-			<?php
-			endif;
-			?> 
+			<?php endif;?>
+			
 			<p>
-				Zum &Auml;ndern deines Passworts gehe auf <a href="user/userprofile.php">Benutzerprofil</a>
+				Fuer die Aenderungen auf deinem Profil gehe auf <a href="user/userprofil.php">Profil</a>
 			</p>
+			
+			<p>
+				Um dich fuer Termine anzumelden gehe auf <a href="user/user_appointment_overview.php">Zu Terminen anmelden</a>
+			</p>
+			 
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>
             <p>

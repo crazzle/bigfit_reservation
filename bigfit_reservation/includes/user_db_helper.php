@@ -32,7 +32,7 @@ function delete_user($mysqli, $user) {
 
 function load_user ($mysqli){
 	if ($stmt = $mysqli->prepare ( "SELECT id, vorname, nachname, email
-			FROM members where id = ". $_SESSION ['user_id'] )) {
+			FROM members where id = ". $_SESSION['user_id'] )) {
 			$stmt->execute ();// Execute the prepared query.
 
 			mysqli_stmt_bind_result ( $stmt, $id, $vorname, $nachname, $email );

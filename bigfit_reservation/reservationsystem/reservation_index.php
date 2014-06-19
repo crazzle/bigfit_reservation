@@ -29,8 +29,10 @@ sec_session_start();
 			
 			<?php
 			endif;
-			
 			?> 
+			<p>
+				Zum &Auml;ndern deines Passworts gehe auf <a href="user/userprofile.php">Benutzerprofil</a>
+			</p>
 			<p><a href="../includes/logout.php">Ausloggen</a>.</p>
         <?php else : ?>
             <p>

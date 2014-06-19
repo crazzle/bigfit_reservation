@@ -1,0 +1,130 @@
+@CHARSET "ISO-8859-1";
+
+/*!
+ * Bootswatch v3.1.1+1
+ * Homepage: http://bootswatch.com
+ * Copyright 2012-2014 Thomas Park
+ * Licensed under MIT
+ * Based on Bootstrap
+*/
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+
+/*Menüleiste oberes Bild*/
+.Navigation_Top {
+	height: 55px;
+	background-color: transparent;
+	background-image: url(http://www.bigfitboxclub.de/s/img/mt_firstSeparator.png);
+	display: block;
+	background-position: center;
+}
+
+/*Menüleiste unteres Bild*/
+.Navigation_Botton {
+	height: 6px;
+	background-color: transparent;
+	background-image: url(http://www.bigfitboxclub.de/s/img/mt_secondSeparator.png);
+	display: block;
+	background-position: 1px 0;
+}
+
+/*Bigfit Header*/
+.emotionheader{
+	background: url("../pictures/emotionheader.png") no-repeat top center;
+	text-align: center;
+	width:100%;
+ 	height:234px;
+ 	margin-top: 5px;
+}
+
+/*Menüleiste als Tabelle*/
+.MenueLeiste
+{
+	text-align: center;
+	width:963px; 
+	position: center;
+	margin: 0 auto;
+}
+
+#navMenue { 
+	margin-top: -38px;
+	width:100%; 
+	background: url("http://www.bigfitboxclub.de/s/img/mt_navigation.png") repeat top center;
+  	text-align: center;
+	border: 1px solid #333333; 
+	height: 38px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #fff;
+	
+	} 
+#navMenue td 
+{ 
+	width: 16%; 
+	padding: 1px; 
+	height: 20px; 
+	text-align: center; 
+	margin:1px;
+} 
+
+#navMenue a:link, #navMenue a:visited 
+{ 
+	color: #fff; 
+	text-decoration: none; 
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-size: 14px; 
+	text-transform: none; 
+} 
+#navMenue a:hover 
+{ 
+	color: #fff; 
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-weight: bold; 
+	font-family: sans-serif; 
+	font-size: 14px; 
+	/*45 ,41, 32*/
+	}
+
+/*Inhalt der Seite*/
+.content
+{
+	text-align: center;
+	width:963px;
+	height:150%; 
+	position: center;
+	margin: 5px auto;
+	background-color: transparent;
+	background-image: url("../pictures/mt_mainWrapperCenter_innen.png");
+	background-repeat: repeat;
+	border: 3px solid #000000;
+}
+
+
+body {
+  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	font-size: 14px;
+  	line-height: 1.42857143;
+ 	background-image: url(http://www.bigfitboxclub.de/s/img/mt_body.png);
+	background-repeat: repeat-y;
+	background-position: top center;
+   	/*margin: 0;*/
+   	color: #d3d3d3;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #d3d3d3;
+}
+
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #d3d3d3;
+}
+
+ 

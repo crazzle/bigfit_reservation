@@ -77,7 +77,7 @@ sec_session_start ();
 		}
 		
 		?>
-<form action='termin_erstellen.php' method='post'
+<form action='appointment_creation.php' method='post'
 		id="terminErstellenForm">
 		<h1>Termin erstellen</h1>
 		<p>

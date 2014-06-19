@@ -9,7 +9,7 @@ print "
 <html>
 <head>
 	<title>Reservation System - Change Profile</title>
-	<link rel='stylesheet' type='text/css' href='../../design/userprofile.css' />
+	<link rel='stylesheet' type='text/css' href='../../css/userprofile.css' />
 </head>
 <body>
 <div id='createChange'>

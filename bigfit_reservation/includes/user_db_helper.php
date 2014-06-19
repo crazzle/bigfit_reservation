@@ -60,7 +60,7 @@ function load_user ($mysqli){
 function update_user ($mysqli, $opw, $cpw){
 
 	if ($stmt = $mysqli->prepare ( "SELECT password, salt FROM members WHERE id = ? LIMIT 1" )) {
-		$stmt->bind_param ( 'sss', $_SESSION['user_id'] ); // Bind "user_id" to parameter.
+		$stmt->bind_param ( 's', $_SESSION['user_id'] ); // Bind "user_id" to parameter.
 		$stmt->execute (); // Fuehre die vorbereitete Anfrage aus.
 		$stmt->store_result ();
 

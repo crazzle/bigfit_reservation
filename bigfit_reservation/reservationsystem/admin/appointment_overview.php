@@ -33,13 +33,16 @@ sec_session_start ();
 	<td>Beginn</td>
 	<td>Ende</td>
 	<td>Teilnehmer</td>
+	<td>Max. Teilnehmer</td>
 	</tr>
 	<?php
 			foreach ( all_appointments ( $mysqli ) as $appointment ) {
+				$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());
 				echo "<tr>";
 				echo "<td>".$appointment->getDatum()."</td>";
 				echo "<td>".$appointment->getBeginn()."</td>";
 				echo "<td>".$appointment->getEnde()."</td>";
+				echo "<td>".$subscribers."</td>";
 				echo "<td>".$appointment->getMaxAnzahl()."</td>";
 				echo "<td><a href='appointment_overview.php?delete=".$appointment->getId()."'>Loeschen</a></td>";
 				echo "</tr>";

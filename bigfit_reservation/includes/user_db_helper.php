@@ -3,7 +3,7 @@ include_once 'psl-config.php';
 include_once 'klassen/Mitgliedseintrag.php';
 function all_users($mysqli) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, vorname, nachname, email
-			FROM members where aktiv = 1" )) {
+			FROM members" )) {
 			$stmt->execute (); // Execute the prepared query.
 
 			/* bind variables to prepared statement */
@@ -22,14 +22,13 @@ function all_users($mysqli) {
 	}
 }
 function delete_user($mysqli, $user) {
-	if ($stmt = $mysqli->prepare ( "UPDATE members SET aktiv = 0 WHERE id = ?" )) {
+	if ($stmt = $mysqli->prepare ( "DELETE FROM members WHERE id = ?" )) {
 		if ($stmt) {
 			$stmt->bind_param('s', $user);
 			$stmt->execute (); // Execute the prepared query.
 		}
 	}
 }
-
 function load_user ($mysqli){
 	if ($stmt = $mysqli->prepare ( "SELECT id, vorname, nachname, email
 			FROM members where id = ". $_SESSION['user_id'] )) {

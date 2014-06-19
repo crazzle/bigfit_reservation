@@ -19,8 +19,8 @@ sec_session_start ();
 <body>
 <?php if (login_check($mysqli) == true) : ?>
 		<?php if (isset($_GET['unapply'])){
-			$id = $_GET['apply'];
-			unsubscribed_upcoming_appointment($mysqli, $id, $_SESSION['user_id']);
+			$id = $_GET['unapply'];
+			unsubscribe_upcoming_appointment($mysqli, $id, $_SESSION['user_id']);
 			echo "Vom Termin abgemeldet.";
 		}?>
 

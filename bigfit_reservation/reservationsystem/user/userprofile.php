@@ -9,12 +9,10 @@ if (isset ( $_POST['op'] ) && isset ($_POST['np']) && isset ($_POST['cp'])) {
 	$oldpwd = $_POST['op'];
 	$newpass = $_POST['np'];
 	$confpass = $_POST['cp'];
-	if ($newpass == $confpass){
-		update_user($mysqli, $oldpwd, $confpass);
-		echo "Passwort erfolgreich ge&auml;ndert!";
-	}
-	else {
-		echo "Neues Passwort und Bestätigung des neuen Passworts stimmen nicht überein!";
+	if (update_user($mysqli, $oldpwd, $confpass)){
+		echo "<script type=text/JavaScript>alert('Passwort erfolgreich geändert!');</script>";
+	} else {
+		echo "<script type=text/JavaScript>alert('Das eingegebene alte Passwort ist falsch!');</script>";
 	}
 	
 }
@@ -24,6 +22,8 @@ print "
 <html>
 <head>
 	<title>Reservation System - Change Profile</title>
+	<script type='text/JavaScript' src='../../js/sha512.js'></script>
+	<script type='text/JavaScript' src='../../js/forms.js'></script>
 	<link rel='stylesheet' type='text/css' href='../../css/userprofile.css' />
 </head>
 <body>
@@ -67,16 +67,15 @@ print "
 				<label for='confpass' class='clabel'>Passwort best&auml;tigen</label>
 			</div>
 			<div class='field'>
-				<input type='password' name='confpass' id='newpass' size='30' maxlength='30' />
+				<input type='password' name='confpass' id='confpass' size='30' maxlength='30' />
 			</div>
 		</div><br />
 		<div id='button'>
-			<input type='submit' value='&Auml;ndern' name='update' onclick='return profileformhash(
+			<input type='button' value='&Auml;ndern' name='update' onclick='return profileformhash(
 										this.form,
 										this.form.oldpwd,
 										this.form.newpass,
-										this.form.confpass
-										);' />
+										this.form.confpass);' />
 		</div>
 	</form>
 	<p align='left'><a href='../reservation_index.php'>Zur&uuml;ck</a></p>

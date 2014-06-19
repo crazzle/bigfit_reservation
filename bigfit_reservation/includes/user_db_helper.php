@@ -69,10 +69,10 @@ function update_user ($mysqli, $opw, $cpw){
 		$stmt->fetch ();
 
 		// hash das Passwort mit dem eindeutigen salt.
-		$password = hash ( 'sha512', $opw . $salt );
+		$opwd = hash ( 'sha512', $opw . $salt );
 		// Ueberpruefe, ob das Passwort in der Datenbank mit dem vom
 		// Benutzer angegebenen alten Passwort uebereinstimmt.
-		if ($db_password == $opw) {
+		if ($db_password == $opwd) {
 
 			// Erstelle ein zufaelliges Salt
 			$random_salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
@@ -82,10 +82,13 @@ function update_user ($mysqli, $opw, $cpw){
 			// Aktualisiere das Passwort des Benutzers in der Datenbank
 			if ($update_stmt = $mysqli->prepare("UPDATE members SET password= ?, salt= ? WHERE id= ? ")) {
 
-				$update_stmt->bind_param('sss', $cpw, $random_salt, $_SESSION['user_id']);
-				// FŸhre die vorbereitete Anfrage aus.
+				$update_stmt->bind_param('sss', $password, $random_salt, $_SESSION['user_id']);
+				// Fuehre die vorbereitete Anfrage aus.
 				$update_stmt->execute();
 			}
+			return true;
+		} else {
+			return false;
 		}
 	}
 }

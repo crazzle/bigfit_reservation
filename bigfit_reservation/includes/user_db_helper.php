@@ -60,7 +60,7 @@ function load_user ($mysqli){
 function update_user ($mysqli, $opw, $cpw){
 
 	if ($stmt = $mysqli->prepare ( "SELECT password, salt FROM members WHERE id = ? LIMIT 1" )) {
-		$stmt->bind_param ( 'p', $_SESSION['user_id'] ); // Bind "user_id" to parameter.
+		$stmt->bind_param ( 'sss', $_SESSION['user_id'] ); // Bind "user_id" to parameter.
 		$stmt->execute (); // Fuehre die vorbereitete Anfrage aus.
 		$stmt->store_result ();
 
@@ -80,9 +80,9 @@ function update_user ($mysqli, $opw, $cpw){
 			// Erstelle saltet Passwort
 			$password = hash('sha512', $cpw . $random_salt);
 			// Aktualisiere das Passwort des Benutzers in der Datenbank
-			if ($update_stmt = $mysqli->prepare("UPDATE members SET password='', salt='' WHERE id= '' ")) {
+			if ($update_stmt = $mysqli->prepare("UPDATE members SET password= ?, salt= ? WHERE id= ? ")) {
 
-				$update_stmt->bind_param($cpw, $random_salt, $_SESSION ['user_id']);
+				$update_stmt->bind_param('sss', $cpw, $random_salt, $_SESSION['user_id']);
 				// FŸhre die vorbereitete Anfrage aus.
 				$update_stmt->execute();
 			}

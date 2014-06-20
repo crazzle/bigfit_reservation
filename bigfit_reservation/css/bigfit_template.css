@@ -66,11 +66,14 @@
 	text-transform: none;
 }
 
+#navMenue a.chosen {
+	color: #F0E68C;
+}
+
 #navMenue a:hover {
-	color: #fff;
+	color: #F0E68C;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
 	font-weight: bold;
-	font-family: sans-serif;
 	font-size: 14px;
 	/*45 ,41, 32*/
 }

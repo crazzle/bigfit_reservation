@@ -6,7 +6,7 @@
 			{
 				$p .= '../';
 			}
-			return $p .= '/bigfit_reservation/bigfit_reservation/';
+			return $p .= 'bigfit_reservation/bigfit_reservation/';
 		}
 		?>
 		
@@ -17,26 +17,21 @@
 				<table id="navMenue">
 					<tr> 
 					<td><a href="http://www.bigfitboxclub.de/">Startseite</a></td> 
-						<?php if (admin_check($mysqli) == true) : 
-							$host  = $_SERVER['DOCUMENT_ROOT'];
-							$uri = '/bigfit_reservation/bigfit_reservation/';?>
+						<?php if (admin_check($mysqli) == true) : ?>
 							<?php 
-							echo '<td><a href="'.  toRoot()	. 'reservationsystem/admin/user_overview.php">Mitglieder&uumlbersicht</a></td>'; 
+							echo '<td><a '; if($thisPage=="usermgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot()	. 'reservationsystem/admin/user_overview.php">Mitglieder&uumlbersicht</a></td>'; 
 					
-							echo '<td><a href="'.  toRoot() . 'reservationsystem/admin/appointment_overview.php">Termin&uumlbersicht</a></td>';
+							echo '<td><a '; if($thisPage=="appointmentmgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot() . 'reservationsystem/admin/appointment_overview.php">Termin&uumlbersicht</a></td>';
 							?>
 						<?php endif;?>
 				
 					<?php 
 					
-					$host  = $_SERVER['DOCUMENT_ROOT'];
-					$uri = '/bigfit_reservation/bigfit_reservation/';
+					echo '<td><a '; if($thisPage=="profile"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/userprofile.php?profile=true">Profil</a></td>';
 					
-					echo '<td><a href="'. toRoot() . 'reservationsystem/user/userprofile.php">Profil</a></td>';
-					
-					echo '<td><a href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Zu Terminen anmelden</a></td>'; 
+					echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Zu Terminen anmelden</a></td>'; 
 				
-					echo '<td><a href="'. toRoot() .'reservationsystem/user/user_appointment_overview.php">Meine Termine</a></td> ';
+					echo '<td><a '; if($thisPage=="appoverview"){echo 'class="chosen"';} echo ' href="'. toRoot() .'reservationsystem/user/user_appointment_overview.php">Meine Termine</a></td> ';
 				
 					echo '<td><a href="'. toRoot() . 'includes/logout.php">Ausloggen</a></td>'; 
 					echo '</tr>'

@@ -1,3 +1,6 @@
+<?php 
+$thisPage = "usermgmt";
+?>
 <!DOCTYPE html>
 <html>
     <head>

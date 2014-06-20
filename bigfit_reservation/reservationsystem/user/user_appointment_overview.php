@@ -1,5 +1,6 @@
 
 <?php
+$thisPage = "appoverview";
 include_once '../../includes/db_connect.php';
 include_once '../../includes/termin_db_helper.php';
 include_once '../../includes/functions.php';

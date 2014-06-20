@@ -19,6 +19,8 @@ if (login_check($mysqli) == true) {
         <link rel="stylesheet" href="styles/main.css" />
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
+ 
+ 
         <link rel="stylesheet" type="text/css" href="css/bigfit_template.css">
     </head>
     <body>

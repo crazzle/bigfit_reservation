@@ -1,12 +1,11 @@
 @CHARSET "ISO-8859-1";
 
-
-
 /*Menüleiste oberes Bild*/
 .Navigation_Top {
 	height: 55px;
 	background-color: transparent;
-	background-image: url(http://www.bigfitboxclub.de/s/img/mt_firstSeparator.png);
+	background-image:
+		url(http://www.bigfitboxclub.de/s/img/mt_firstSeparator.png);
 	display: block;
 	background-position: center;
 }
@@ -15,74 +14,72 @@
 .Navigation_Botton {
 	height: 6px;
 	background-color: transparent;
-	background-image: url(http://www.bigfitboxclub.de/s/img/mt_secondSeparator.png);
+	background-image:
+		url(http://www.bigfitboxclub.de/s/img/mt_secondSeparator.png);
 	display: block;
 	background-position: 1px 0;
 }
 
 /*Bigfit Header*/
-.emotionheader{
+.emotionheader {
 	background: url("../pictures/emotionheader.png") no-repeat top center;
 	text-align: center;
-	width:100%;
- 	height:234px;
- 	margin-top: 5px;
+	width: 100%;
+	height: 234px;
+	margin-top: 5px;
 }
 
 /*Menüleiste als Tabelle*/
-.MenueLeiste
-{
+.MenueLeiste {
 	text-align: center;
-	width:963px; 
+	width: 963px;
 	position: center;
 	margin: 0 auto;
 }
 
-#navMenue { 
+#navMenue {
 	margin-top: -38px;
-	width:100%; 
-	background: url("http://www.bigfitboxclub.de/s/img/mt_navigation.png") repeat top center;
-  	text-align: center;
-	border: 1px solid #333333; 
+	width: 100%;
+	background: url("http://www.bigfitboxclub.de/s/img/mt_navigation.png")
+		repeat top center;
+	text-align: center;
+	border: 1px solid #333333;
 	height: 38px;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #fff;
-	
-	} 
-#navMenue td 
-{ 
-	width: 16%; 
-	padding: 1px; 
-	height: 20px; 
-	text-align: center; 
-	margin:1px;
-} 
+}
 
-#navMenue a:link, #navMenue a:visited 
-{ 
-	color: #fff; 
-	text-decoration: none; 
-	font-family:  Arial, Verdana, Helvetica, sans-serif;
-	font-size: 14px; 
-	text-transform: none; 
-} 
-#navMenue a:hover 
-{ 
-	color: #fff; 
-	font-family:  Arial, Verdana, Helvetica, sans-serif;
-	font-weight: bold; 
-	font-family: sans-serif; 
-	font-size: 14px; 
+#navMenue td {
+	width: 16%;
+	padding: 1px;
+	height: 20px;
+	text-align: center;
+	margin: 1px;
+}
+
+#navMenue a:link,#navMenue a:visited {
+	color: #fff;
+	text-decoration: none;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: none;
+}
+
+#navMenue a:hover {
+	color: #fff;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 14px;
 	/*45 ,41, 32*/
-	}
+}
 
 /*Inhalt der Seite*/
-.content
-{
+.content {
 	text-align: center;
-	width:963px;
-	height:150%; 
+	width: 963px;
+	height: 150%;
 	position: center;
 	margin: 5px auto;
 	background-color: transparent;
@@ -91,45 +88,41 @@
 	border: 3px solid #000000;
 }
 
-
 body {
-  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  	font-size: 14px;
-  	line-height: 1.42857143;
- 	background-image: url(http://www.bigfitboxclub.de/s/img/mt_body.png);
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	background-image: url(http://www.bigfitboxclub.de/s/img/mt_body.png);
 	background-repeat: repeat-y;
 	background-position: top center;
-   	/*margin: 0;*/
-   	color: #d3d3d3;
+	/*margin: 0;*/
+	color: #d3d3d3;
 }
 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  	color: #d3d3d3;
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #d3d3d3;
 }
 
 p {
-  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  	color: #d3d3d3;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #d3d3d3;
 }
 
 a:link {
 	COLOR: #F0E68C;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: bold; 
+	font-weight: bold;
 }
+
 a:visited {
 	COLOR: #F0E68C;
 }
+
 a:hover {
 	COLOR: #F4A460;
 }
+
 a:active {
 	COLOR: #F4A460;
-} 
+}

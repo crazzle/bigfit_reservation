@@ -6,6 +6,7 @@ sec_session_start();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="UTF-8">
 <title>Mitglieder bearbeiten</title>
 <script type="text/JavaScript" src="js/sha512.js"></script>
@@ -13,6 +14,8 @@ sec_session_start();
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
@@ -20,7 +23,7 @@ sec_session_start();
 	<h1>Mitglied anlegen</h1>
     <p>Um Mitglieder anzulegen, gehe auf <a href="user_registration.php">Mitglied Anlegen</a></p>
     <h1>Mitgliederuebersicht</h1>
-    <p>Fuer eine Mitgliedsuebersicht, gehe auf <a href="user_overview.php">Mitgliedsuebersicht</a></p>
+    <p>Fuer eine Mitgliedsuebersicht, gehe auf <a href="user_overview.php">Mitglieds&uumlbersicht</a></p>
 	<p>
 		<a href="../reservation_index.php">zurueck</a>.
 	</p>
@@ -36,5 +39,6 @@ sec_session_start();
 		Bitte <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+     </div>
 </body>
 </html>

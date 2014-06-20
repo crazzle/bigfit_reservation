@@ -7,6 +7,7 @@ sec_session_start ();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="UTF-8">
 <title>Mitgliederuebersicht</title>
 <script type="text/JavaScript" src="js/sha512.js"></script>
@@ -14,6 +15,8 @@ sec_session_start ();
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 		<?php if (isset($_GET['delete'])){
@@ -22,7 +25,10 @@ sec_session_start ();
 		}?>
 	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
         oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
-	<h1>Mitglieder Ÿbersicht</h1>
+	<?php 
+			echo '<td><a href="user_registration.php">Mitglied Anlegen</a></td>'; 
+	?>
+	<h1>Mitglieder&uumlbersicht</h1>
 	<p>
 	<table>
 	<tr>
@@ -57,5 +63,6 @@ sec_session_start ();
 			href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+       </div>
 </body>
 </html>

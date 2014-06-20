@@ -8,6 +8,7 @@ sec_session_start ();
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="utf-8">
 <title>Termin anlegen</title>
 <link rel="stylesheet"
@@ -60,8 +61,11 @@ sec_session_start ();
 		}
 	};
 	</script>
+	
 </head>
 <body>
+		<?php include_once '../../includes/navigationsleiste.php'; ?>
+		<div class="content">
 <?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 <?php
@@ -122,5 +126,6 @@ sec_session_start ();
 			href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+        </div>
 </body>
 </html>

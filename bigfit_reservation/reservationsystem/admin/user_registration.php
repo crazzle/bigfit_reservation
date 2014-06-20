@@ -6,6 +6,7 @@ sec_session_start();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="UTF-8">
 <title>Mitglied anlegen</title>
 <script type="text/JavaScript" src="../../js/sha512.js"></script>
@@ -13,6 +14,8 @@ sec_session_start();
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 		<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
@@ -62,5 +65,6 @@ sec_session_start();
 		Bitte <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+        </div>
 </body>
 </html>

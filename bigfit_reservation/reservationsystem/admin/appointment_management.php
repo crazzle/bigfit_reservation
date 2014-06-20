@@ -6,6 +6,7 @@ sec_session_start();
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="UTF-8">
 <title>Mitglieder bearbeiten</title>
 <script type="text/JavaScript" src="js/sha512.js"></script>
@@ -13,12 +14,14 @@ sec_session_start();
 <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 	<h1>Termin erstellen</h1>
     <p>Um einen Termin zu erstellen gehe auf <a href="appointment_creation.php">Termin Anlegen</a></p>
     <h1>Terminuebersicht</h1>
-    <p>Fuer eine Terminuebersicht, gehe auf <a href="appointment_overview.php">Terminuebersicht</a></p>
+    <p>Fuer eine Terminuebersicht, gehe auf <a href="appointment_overview.php">Termin&uumlbersicht</a></p>
 	<p>
 		<a href="../reservation_index.php">zurueck</a>.
 	</p>
@@ -34,5 +37,6 @@ sec_session_start();
 		Bitte <a href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+    </div>
 </body>
 </html>

@@ -1,13 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-/*!
- * Bootswatch v3.1.1+1
- * Homepage: http://bootswatch.com
- * Copyright 2012-2014 Thomas Park
- * Licensed under MIT
- * Based on Bootstrap
-*/
-/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 
 /*Menüleiste oberes Bild*/
@@ -118,13 +110,26 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #d3d3d3;
+  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	color: #d3d3d3;
 }
 
 p {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #d3d3d3;
+  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	color: #d3d3d3;
 }
 
- 
+a:link {
+	COLOR: #F0E68C;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold; 
+}
+a:visited {
+	COLOR: #F0E68C;
+}
+a:hover {
+	COLOR: #F4A460;
+}
+a:active {
+	COLOR: #F4A460;
+} 

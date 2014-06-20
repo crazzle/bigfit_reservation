@@ -8,6 +8,7 @@ sec_session_start ();
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="utf-8">
 <title>Termin anlegen</title>
 <link rel="stylesheet"
@@ -17,6 +18,8 @@ sec_session_start ();
 <script src="../../js/jquery.ui.datepicker-de.js"></script>
 </head>
 <body>
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 <?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
 		<?php if (isset($_GET['delete'])){
@@ -25,7 +28,8 @@ sec_session_start ();
 		}?>
 <!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
         oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
-	<h1>Terminuebersicht</h1>
+	<p>Um einen Termin zu erstellen gehe auf <a href="appointment_creation.php">Termin Anlegen</a></p>
+	<h1>Termin&uumlbersicht</h1>
 	<p>
 	<table>
 	<tr>
@@ -63,5 +67,6 @@ sec_session_start ();
 			href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+     </div>
 </body>
 </html>

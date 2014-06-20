@@ -3,9 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>BigFit Training Reservation System</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/bigfit_template.css">
     </head>
     <body>
-         <p>Please go to <a href="login.php">login page</a></p>
+    	<div class= "Navigation_Top"></div>
+		<div class="MenueLeiste">
+			<div class= "Navigation_Botton"></div>
+			<div class="emotionheader"></div>
+		</div>
+    	<div class="content">	
+         <p>Zur&uumlck zum  <a href="login.php">Loginbereich</a></p>
+         <p>Zur&uumlck zur <a href="http://www.bigfitboxclub.de/">Startseite</a>
+         </div>
+         
     </body>
 </html>

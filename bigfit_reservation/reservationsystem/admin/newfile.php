@@ -16,43 +16,36 @@ include_once '../../includes/functions.php';
 </head>
 <body>
 	<div class= "Navigation_Top"></div>
-	<div class="MenueLeiste">
-		<table id="navMenue">
-			<tr> 
-				<td>
-				<a href="http://www.bigfitboxclub.de/">Startseite</a>
-				</td> <td>
-				<a href="admin/user_management.php">Mitgliederverwaltung</a>
-				</td> <td>
-				<a href="admin/appointment_management.php">Terminverwaltung</a>
-				</td> <td>
-				<a href="./includes/logout.php">Ausloggen</a>
-				</td>
-			</tr>
-		</table>
-		<div class= "Navigation_Botton"></div>
-		<div class="emotionheader"></div>	
+			<div class="MenueLeiste">
+				<table id="navMenue">
+					<tr> 
+					<td><a href="http://www.bigfitboxclub.de/">Startseite</a></td> 
+						<?php if (admin_check($mysqli) == true) : ?>
+							<td><a href="admin/user_management.php">Mitgliederverwaltung</a></td> 
+					
+							<td><a href="admin/appointment_management.php">Terminverwaltung</a></td> 
+				
+						<?php endif;?>
+				
+				
+					<td><a href="user/userprofile.php">Profil</a></td> 
+				
+					<td><a href="user/user_appointment_applies.php">Zu Terminen anmelden</a></td> 
+				
+					<td><a href="user/user_appointment_overview.php">Meine Termine</a></td> 
+				
+					<td><a href="./includes/logout.php">Ausloggen</a></td> 
+					</tr>
+				</table>
+				<div class= "Navigation_Botton"></div>
+				<div class="emotionheader"></div>	
 	</div>
 	
+	
+        
 
 	
-	<div class="content">
-		<h1>Neue Trainingstermine anlegen</h1>
-	
-  	
-		<p>Termine fuer eintragen fuer die folgenden naechsten Woche</p>
-
-		<form name=myform>
-			<select name=mytextarea size=2>
-				<option value=one>1</option>
-				<option value=two>2</option>
-				<option value=three>3</option>
-				<option value=four>4</option>
-			</select>
-		</form>
-
-		<INPUT TYPE="Submit" Name="Submit1" VALUE="Termine eintragen">
-	</div>
+      
 	
 	
 </body>

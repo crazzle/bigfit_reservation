@@ -71,7 +71,7 @@ function regformhash(form, vorname, nachname, email, password, conf) {
     return true;
 }
 
-function profileformhash(form, , , email, password, conf) {
+function profileformhash(form, test, test, email, password, conf) {
 	var i = 0;
 	
     // Überprüfe, ob jedes Feld einen Wert hat

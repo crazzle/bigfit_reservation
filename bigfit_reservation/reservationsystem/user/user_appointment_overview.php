@@ -13,6 +13,7 @@ sec_session_start ();
 <title>Angemeldete Termine</title>
 <link rel="stylesheet"
 	href="../../css/ui-lightness/jquery-ui-1.10.4.custom.css">
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <script src="../../js/jquery-1.10.2.js"></script>
 <script src="../../js/jquery-ui-1.10.4.custom.js"></script>
 <script src="../../js/jquery.ui.datepicker-de.js"></script>
@@ -24,7 +25,8 @@ sec_session_start ();
 			unsubscribe_upcoming_appointment($mysqli, $id, $_SESSION['user_id']);
 			echo "Vom Termin abgemeldet.";
 		}?>
-
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<h1>Angemeldete Termine</h1>
 	<p>
 	<table>
@@ -58,5 +60,6 @@ sec_session_start ();
 			href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+        </div>
 </body>
 </html>

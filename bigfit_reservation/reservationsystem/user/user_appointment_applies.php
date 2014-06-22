@@ -13,9 +13,11 @@ sec_session_start ();
 <title>Termin anlegen</title>
 <link rel="stylesheet"
 	href="../../css/ui-lightness/jquery-ui-1.10.4.custom.css">
+<link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <script src="../../js/jquery-1.10.2.js"></script>
 <script src="../../js/jquery-ui-1.10.4.custom.js"></script>
 <script src="../../js/jquery.ui.datepicker-de.js"></script>
+</head>
 </head>
 <body>
 <?php if (login_check($mysqli) == true) : ?>
@@ -24,7 +26,8 @@ sec_session_start ();
 			apply_appointment($mysqli, $id, $_SESSION['user_id']);
 			echo "Zu Termin angemeldet.";
 		}?>
-
+	<?php include_once '../../includes/navigationsleiste.php'; ?>
+	<div class="content">
 	<h1>Terminuebersicht</h1>
 	<p>
 	<table>
@@ -62,5 +65,6 @@ sec_session_start ();
 			href="../../index.php">einloggen</a>.
 	</p>
         <?php endif; ?>
+        </div>
 </body>
 </html>

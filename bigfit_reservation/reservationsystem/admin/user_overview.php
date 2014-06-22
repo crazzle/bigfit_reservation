@@ -11,9 +11,6 @@ sec_session_start ();
 <link rel="stylesheet" type="text/css" href="../../css/bigfit_template.css">
 <meta charset="UTF-8">
 <title>Mitgliederuebersicht</title>
-<script type="text/JavaScript" src="js/sha512.js"></script>
-<script type="text/JavaScript" src="js/forms.js"></script>
-<link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 	<?php include_once '../../includes/navigationsleiste.php'; ?>
@@ -24,8 +21,6 @@ sec_session_start ();
 			$username = $_GET['delete'];
 			delete_user($mysqli, $username);
 		}?>
-	<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
-        oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<?php 
 			echo '<td><a href="user_registration.php">Mitglied Anlegen</a></td>'; 
 	?>

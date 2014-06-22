@@ -27,7 +27,7 @@
 				
 					<?php 
 					
-					echo '<td><a '; if($thisPage=="profile"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/userprofile.php?profile=true">Profil</a></td>';
+					echo '<td><a '; if($thisPage=="profile"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_profile.php">Profil</a></td>';
 					
 					echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Zu Terminen anmelden</a></td>'; 
 				
@@ -47,7 +47,7 @@
 					<td><a href="http://www.bigfitboxclub.de/">Startseite</a></td> 
 				
 					<?php 
-					echo '<td></td>';
+					echo '<td><a href="'. toRoot() .'login.php">Login</a></td> ';
 				
 					echo '<td></td>'; 
 				

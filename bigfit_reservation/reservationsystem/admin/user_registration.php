@@ -12,15 +12,12 @@ sec_session_start();
 <title>Mitglied anlegen</title>
 <script type="text/JavaScript" src="../../js/sha512.js"></script>
 <script type="text/JavaScript" src="../../js/forms.js"></script>
-<link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 	<?php include_once '../../includes/navigationsleiste.php'; ?>
 	<div class="content">
 	<?php if (login_check($mysqli) == true) : ?>
 		<?php if (admin_check($mysqli) == true) :?>
-		<!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
-	        oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	<h1>Mitglied anlegen</h1>
 	        <ul>
 		<li>Benutzernamen duerfen nur Ziffern, Gross- und Kleinbuchstaben und

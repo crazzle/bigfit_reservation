@@ -37,6 +37,79 @@
 	margin: 0 auto;
 }
 
+#tableFormular{
+	text-align: left;
+}
+
+#tableFormular td {
+	text-align: left;
+	}
+
+#tableMitgliedOverview
+{
+	border:0px solid #333333;
+	text-align: left;
+}
+
+#tableTerminOverview
+{
+	border:0px solid #333333;
+	text-align: left;
+}
+
+#tableMitglied {
+	
+}
+
+#tableMitgliedtd {
+	padding: 5px 10px;
+	
+}
+
+#tableTermintd {
+	padding: 5px 10px;
+	
+}
+
+#tableTermintdB {
+	padding: 5px 10px;
+	width: 40%;
+}
+
+#tableTermintdAnzahl {
+	padding: 5px 10px;
+	width: 5px;
+}
+
+#tablTermintdOvlinks {
+	border:2px solid #333333;
+	text-align: left;
+	width: 55%;
+	vertical-align:top;
+}
+
+#tableTermintdOvrechts {
+	border:2px solid #333333;
+	text-align: left;
+	width: 45%;
+	vertical-align:top;
+}
+
+
+#tableMitgliedtdOvlinks {
+	border:2px solid #333333;
+	text-align: left;
+	width: 55%;
+	vertical-align:top;
+}
+
+#tableMitgliedtdOvrechts {
+	border:2px solid #333333;
+	text-align: left;
+	width: 45%;
+	vertical-align:top;
+}
+
 #navMenue {
 	margin-top: -38px;
 	width: 100%;

@@ -49,12 +49,14 @@
 {
 	border:0px solid #333333;
 	text-align: left;
+	vertical-align:top;
 }
 
 #tableTerminOverview
 {
 	border:0px solid #333333;
 	text-align: left;
+	vertical-align:top;
 }
 
 #tableMitglied {
@@ -71,27 +73,19 @@
 	
 }
 
-#tableTermintdB {
-	padding: 5px 10px;
-	width: 40%;
-}
 
-#tableTermintdAnzahl {
-	padding: 5px 10px;
-	width: 5px;
-}
 
-#tablTermintdOvlinks {
+#tableTermintdOvlinks {
 	border:2px solid #333333;
 	text-align: left;
-	width: 55%;
+	width: 600px;
 	vertical-align:top;
 }
 
 #tableTermintdOvrechts {
 	border:2px solid #333333;
 	text-align: left;
-	width: 45%;
+	width: 363px;
 	vertical-align:top;
 }
 
@@ -99,14 +93,14 @@
 #tableMitgliedtdOvlinks {
 	border:2px solid #333333;
 	text-align: left;
-	width: 55%;
+	width: 60%;
 	vertical-align:top;
 }
 
 #tableMitgliedtdOvrechts {
 	border:2px solid #333333;
 	text-align: left;
-	width: 45%;
+	width: 40%;
 	vertical-align:top;
 }
 

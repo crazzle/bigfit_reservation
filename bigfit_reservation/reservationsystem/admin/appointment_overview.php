@@ -84,11 +84,11 @@ sec_session_start ();
 					<h1>Termin&uumlbersicht</h1>
 					<table id="tableMitglied">
 					<tr>
-					<td id="tableTermintdB">Datum</td>
+					<td id="tableTermintd">Datum</td>
 					<td id="tableTermintd">Beginn</td>
 					<td id="tableTermintd">Ende</td>
-					<td id="tableTermintdAnzahl">Teilnehmer</td>
-					<td id="tableTermintdAnzahl">Max. Teilnehmer</td>
+					<td id="tableTermintd">Teilnehmer</td>
+					<td id="tableTermintd">Max. Teilnehmer</td>
 					</tr>
 					<?php
 							foreach ( all_appointments ( $mysqli ) as $appointment ) {
@@ -163,7 +163,7 @@ sec_session_start ();
 			</td>
 	</table>
 	<p>
-		<a href="../reservation_index.php">zurueck zur Startseite</a>.
+		<a href="../reservation_index.php">zur&uumlck</a>
 	</p>
 	<?php else : ?>
             <p>

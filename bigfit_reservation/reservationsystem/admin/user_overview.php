@@ -110,7 +110,7 @@ sec_session_start ();
 			</tr>
 		</table>
 		<p>
-			<a href="../reservation_index.php">zurueck</a>.
+			<a href="../reservation_index.php">zur&uumlck</a>
 		</p>
 	<?php else : ?>
             <p>

@@ -25,23 +25,40 @@ $userprofile = load_user ( $mysqli );
 }?>
 </head>
 <body>
-<div class="content">
 <?php include_once '../../includes/navigationsleiste.php'; ?>
 <?php if (login_check($mysqli) == true) : ?>
+<div class="content">
 		<h1>Profil</h1>
-		<form action='<?php echo esc_url($_SERVER['PHP_SELF'])?>' method='post' name='profile_form'>
-			<label for='username'>Benutzername </label> 
-			<input type='text' name='username' id='username' size='30' maxlength='30' value='<?php echo $userprofile[1]." ".$userprofile[2]?>' disabled /></br>
-			<label for='email'>E-Mail </label> 
-			<input type='text' name='email' id='email' size='30' maxlength='30' value='<?php echo $userprofile[3]?>' disabled /></br>
-			<label for='oldpwd' class='clabel'>Altes Passwort </label> 
-			<input type='password' name='oldpwd' id='oldpwd' size='30' maxlength='30' /></br>
-			<label for='newpass' class='clabel'>Neues Passwort </label> 
-			<input type='password' name='newpass' id='newpass' size='30' maxlength='30' /></br>
-			<label for='confpass' class='clabel'>Passwort best&auml;tigen</label>
-			<input type='password' name='confpass' id='confpass' size='30' maxlength='30' /></br>
-			<input type='button' value='&Auml;ndern' name='update' onclick='return profileformhash(this.form,this.form.oldpwd,this.form.newpass,this.form.confpass);' />
-		</form>
+		
+			<form action='<?php echo esc_url($_SERVER['PHP_SELF'])?>' method='post' name='profile_form'>
+				<table id="tableFormular">
+					<tr>			
+						<td align="right">Benutzername</td>
+						<td><input type='text' name='username' id='username' size='30' maxlength='30' value='<?php echo $userprofile[1]." ".$userprofile[2]?>' disabled /></td>
+					</tr>
+					<tr>
+						<td align="right">E-Mail</td>
+						<td><input type='text' name='email' id='email' size='30' maxlength='30' value='<?php echo $userprofile[3]?>' disabled /></td>
+					</tr>
+					<tr>
+						<td align="right">Altes Passwort</td>
+						<td><input type='password' name='oldpwd' id='oldpwd' size='30' maxlength='30' /></td>
+					</tr>
+					<tr>
+						<td align="right">Neues Passwort</td>
+						<td><input type='password' name='newpass' id='newpass' size='30' maxlength='30' /></td>
+					</tr>
+					<tr>
+						<td align="right">Passwort best&auml;tigen</td>
+						<td><input type='password' name='confpass' id='confpass' size='30' maxlength='30' /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type='button' value='&Auml;ndern' name='update' onclick='return profileformhash(this.form,this.form.oldpwd,this.form.newpass,this.form.confpass);' /></td>
+					</tr>
+				</table>
+			</form>
+	
 	<?php else : ?>
 		<a href='../../login.php'>Neu einloggen</a>.
 	<?php endif;?>

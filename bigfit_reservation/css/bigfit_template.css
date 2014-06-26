@@ -39,6 +39,8 @@
 
 #tableFormular{
 	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #tableFormular td {
@@ -72,8 +74,6 @@
 	padding: 5px 10px;
 	
 }
-
-
 
 #tableTermintdOvlinks {
 	border:2px solid #333333;
@@ -143,6 +143,14 @@
 	font-weight: bold;
 	font-size: 14px;
 	/*45 ,41, 32*/
+}
+
+#profilContent {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 100%;
 }
 
 /*Inhalt der Seite*/

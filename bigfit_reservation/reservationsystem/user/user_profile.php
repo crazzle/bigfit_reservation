@@ -41,8 +41,7 @@ $userprofile = load_user ( $mysqli );
 			<label for='confpass' class='clabel'>Passwort best&auml;tigen</label>
 			<input type='password' name='confpass' id='confpass' size='30' maxlength='30' /></br>
 			<input type='button' value='&Auml;ndern' name='update' onclick='return profileformhash(this.form,this.form.oldpwd,this.form.newpass,this.form.confpass);' />
-		</form></br>
-		<a href='../reservation_index.php'>Zur&uuml;ck</a>
+		</form>
 	<?php else : ?>
 		<a href='../../login.php'>Neu einloggen</a>.
 	<?php endif;?>

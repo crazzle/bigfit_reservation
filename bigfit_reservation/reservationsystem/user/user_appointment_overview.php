@@ -51,9 +51,6 @@ sec_session_start ();
 				echo "</tr>";
 			 }?>
 	</table>
-	<p>
-		<a href="../reservation_index.php">zurueck zur Startseite</a>.
-	</p>
 	 <?php else : ?>
             <p>
 		<span class="error">Du bist nicht eingeloggt.</span> Bitte <a

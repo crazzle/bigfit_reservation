@@ -25,9 +25,6 @@ sec_session_start();
     <p>Um Mitglieder anzulegen, gehe auf <a href="user_registration.php">Mitglied Anlegen</a></p>
     <h1>Mitgliederuebersicht</h1>
     <p>Fuer eine Mitgliedsuebersicht, gehe auf <a href="user_overview.php">Mitglieds&uumlbersicht</a></p>
-	<p>
-		<a href="../reservation_index.php">zurueck</a>.
-	</p>
 	<?php else : ?>
             <p>
 		<span class="error">Du bist kein Administrator.</span>

@@ -49,9 +49,6 @@ sec_session_start();
 	                                   this.form.password,
 	                                   this.form.confirmpwd);" />
 	</form>
-	<p>
-		<a href="../reservation_index.php">zurueck zur Startseite</a>.
-	</p>
 		<?php else : ?>
             <p>
 		<span class="error">Du bist kein Administrator.</span>

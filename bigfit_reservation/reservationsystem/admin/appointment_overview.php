@@ -156,9 +156,6 @@ sec_session_start ();
 						
 			</td>
 	</table>
-	<p>
-		<a href="../reservation_index.php">zur&uumlck</a>
-	</p>
 	<?php else : ?>
             <p>
 		<span class="error">Du bist kein Administrator.</span> Bitte als

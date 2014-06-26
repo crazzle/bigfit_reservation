@@ -19,9 +19,9 @@
 					<td><a href="http://www.bigfitboxclub.de/">Startseite</a></td> 
 						<?php if (admin_check($mysqli) == true) : ?>
 							<?php 
-							echo '<td><a '; if($thisPage=="usermgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot()	. 'reservationsystem/admin/user_overview.php">Mitglieder&uumlbersicht</a></td>'; 
+							echo '<td><a '; if($thisPage=="usermgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot()	. 'reservationsystem/admin/user_overview.php">Mitglieder</a></td>'; 
 					
-							echo '<td><a '; if($thisPage=="appointmentmgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot() . 'reservationsystem/admin/appointment_overview.php">Termin&uumlbersicht</a></td>';
+							echo '<td><a '; if($thisPage=="appointmentmgmt"){echo 'class="chosen"';} echo ' href="'.  toRoot() . 'reservationsystem/admin/appointment_overview.php">Termine</a></td>';
 							?>
 						<?php endif;?>
 				
@@ -29,7 +29,7 @@
 					
 					echo '<td><a '; if($thisPage=="profile"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_profile.php">Profil</a></td>';
 					
-					echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Zu Terminen anmelden</a></td>'; 
+					echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Anmelden</a></td>'; 
 				
 					echo '<td><a '; if($thisPage=="appoverview"){echo 'class="chosen"';} echo ' href="'. toRoot() .'reservationsystem/user/user_appointment_overview.php">Meine Termine</a></td> ';
 				

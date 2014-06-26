@@ -23,9 +23,6 @@ sec_session_start();
     <p>Um einen Termin zu erstellen gehe auf <a href="appointment_creation.php">Termin Anlegen</a></p>
     <h1>Terminuebersicht</h1>
     <p>Fuer eine Terminuebersicht, gehe auf <a href="appointment_overview.php">Termin&uumlbersicht</a></p>
-	<p>
-		<a href="../reservation_index.php">zurueck</a>.
-	</p>
 	<?php else : ?>
             <p>
 		<span class="error">Du bist kein Administrator.</span>

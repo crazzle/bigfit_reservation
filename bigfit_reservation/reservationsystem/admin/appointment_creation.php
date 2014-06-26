@@ -111,9 +111,6 @@ sec_session_start ();
 		</div>
 	</form>
 	<input type='button' value='Termin anlegen' onclick="checkInfos()">
-	<p>
-		<a href="../reservation_index.php">zurueck zur Startseite</a>.
-	</p>
 	<?php else : ?>
             <p>
 		<span class="error">Du bist kein Administrator.</span> Bitte als

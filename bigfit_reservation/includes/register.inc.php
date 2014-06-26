@@ -61,6 +61,5 @@ if (isset($_POST['vorname'], $_POST['nachname'], $_POST['email'], $_POST['p'])) 
                 header('Location: ../../error.php?err=Registration failure: INSERT');
             }
         }
-        header('Location: ../../reservationsystem/admin/user_registration_success.php');
     }
 }

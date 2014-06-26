@@ -11,6 +11,7 @@ function all_users($mysqli) {
 
 			/* fetch values */
 			$ctr = 0;
+			$eintraege = [];
 			while ( mysqli_stmt_fetch ( $stmt ) ) {
 				$eintraege [$ctr] = new Mitgliedseintrag ( $id, $vorname, $nachname, $email );
 				$ctr ++;

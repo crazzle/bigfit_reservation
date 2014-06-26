@@ -1,13 +1,16 @@
 <?php
 $thisPage = "usermgmt";
 include_once '../../includes/db_connect.php';
+include_once '../../includes/register.inc.php';
 include_once '../../includes/user_db_helper.php';
 include_once '../../includes/functions.php';
-sec_session_start ();
+sec_session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/JavaScript" src="../../js/sha512.js"></script>
+<script type="text/JavaScript" src="../../js/forms.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="../../css/bigfit_template.css">
 <meta charset="UTF-8">

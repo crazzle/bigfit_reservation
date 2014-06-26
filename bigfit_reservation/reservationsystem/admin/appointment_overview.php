@@ -73,6 +73,15 @@ sec_session_start ();
 			$id = $_GET['delete'];
 			delete_appointment($mysqli, $id);
 		}?>
+		<?php if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] )) {
+			$datum = $_POST ['date'];
+			$formattedDate = DateTime::createFromFormat ( 'd.m.Y', $datum )->format ( 'Y-m-d' );
+			$begin = $_POST ['begin'];
+			$end = $_POST ['end'];
+			$memberCount = $_POST ['memberCount'];
+			add_appointment ( $mysqli, $formattedDate, $memberCount, $begin, $end );
+			echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;
+		}?>
 <!-- Anmeldeformular fuer die Ausgabe, wenn die POST-Variablen nicht gesetzt sind
         oder wenn das Anmelde-Skript einen Fehler verursacht hat. -->
 	
@@ -106,24 +115,9 @@ sec_session_start ();
 			</td>
 		
 			<td id="tableTermintdOvrechts">
-			
-				<?php
-				
-						if (isset ( $_POST ['date'] ) && isset ( $_POST ['begin'] ) && isset ( $_POST ['end'] ) && isset ( $_POST ['memberCount'] )) {
-							$datum = $_POST ['date'];
-							$formattedDate = DateTime::createFromFormat ( 'd.m.Y', $datum )->format ( 'Y-m-d' );
-							$begin = $_POST ['begin'];
-							$end = $_POST ['end'];
-							$memberCount = $_POST ['memberCount'];
-							add_appointment ( $mysqli, $formattedDate, $memberCount, $begin, $end );
-							echo "Termin angelegt: " . $datum . ", Uhrzeit: " . $begin . " - " . $end . ", Max. Boxer: " . $memberCount;
-						}
-						
-						?>
-				
 						<h1>Termin erstellen</h1>
 						<p>
-						<form action='appointment_creation.php' method='post'
+						<form action='appointment_overview.php' method='post'
 						id="terminErstellenForm">
 						<table id="tableFormular">
 							

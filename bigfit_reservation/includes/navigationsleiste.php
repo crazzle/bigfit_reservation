@@ -1,4 +1,5 @@
-		<?php 
+		<?php
+		$thisPage = "navigationsleiste"; 
 		function toRoot()
 		{
 			$p= './';

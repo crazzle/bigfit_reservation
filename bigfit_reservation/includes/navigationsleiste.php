@@ -1,5 +1,7 @@
 		<?php
-		$thisPage = "navigationsleiste"; 
+		if(!isset($thisPage)){
+			$thisPage = "navigationsleiste"; 
+		}
 		function toRoot()
 		{
 			$p= './';

@@ -65,6 +65,12 @@
 	
 }
 
+#tableOverview{
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #tableMitgliedtd {
 	padding: 5px 10px;
 	
@@ -113,7 +119,7 @@
 	border: 1px solid #333333;
 	height: 38px;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 15px;
 	color: #fff;
 }
 
@@ -129,7 +135,7 @@
 	color: #fff;
 	text-decoration: none;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	text-transform: none;
 }
 
@@ -141,7 +147,7 @@
 	color: #F0E68C;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 15px;
 	/*45 ,41, 32*/
 }
 
@@ -168,7 +174,7 @@
 
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 1.42857143;
 	background-image: url(http://www.bigfitboxclub.de/s/img/mt_body.png);
 	background-repeat: repeat-y;

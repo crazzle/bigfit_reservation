@@ -30,29 +30,30 @@ sec_session_start ();
 	<div class="content">
 	<h1>Terminuebersicht</h1>
 	<p>
-	<table>
+	<table id="tableOverview">
 	<tr>
-	<td>Datum</td>
-	<td>Beginn</td>
-	<td>Ende</td>
-	<td>Anzahl Teilnehmer</td>
-	<td>Max. Anzahl Teilnehmer</td>
+	<td id="tableMitgliedtd"><b>Datum</b></td>
+	<td id="tableMitgliedtd"><b>Beginn</b></td>
+	<td id="tableMitgliedtd"><b>Ende</b></td>
+	<td id="tableMitgliedtd"><b>Max. Anzahl Teilnehmer</b></td>
+	<td id="tableMitgliedtd"><b>Anzahl Teilnehmer</b></td>
 	</tr>
 	<?php
+	setlocale(LC_TIME, "de_DE");
 			foreach ( upcoming_appointments ( $mysqli, 6, $_SESSION['user_id']) as $appointment ) {
 				$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());
 				echo "<tr>";
-				echo "<td>".$appointment->getDatum()."</td>";
-				echo "<td>".$appointment->getBeginn()."</td>";
-				echo "<td>".$appointment->getEnde()."</td>";
-				echo "<td>".$subscribers."</td>";
-				echo "<td>".$appointment->getMaxAnzahl()."</td>";
+				echo "<td id='tableMitgliedtd'>".strftime('%a, %d %b %Y', strtotime($appointment->getDatum()))."</td>";
+				echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getBeginn()))."</td>";
+				echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getEnde()))."</td>";
+				echo "<td id='tableMitgliedtd'>".$appointment->getMaxAnzahl()."</td>";
+				echo "<td id='tableMitgliedtd'>".$subscribers."</td>";
 				if($subscribers < $appointment->getMaxAnzahl()){
-					echo "<td><a href='user_appointment_applies.php?apply=".$appointment->getId()."'>Anmelden</a></td>";
+					echo "<td id='tableMitgliedtd'><a href='user_appointment_applies.php?apply=".$appointment->getId()."'>Anmelden</a></td>";
 				}else{
-					echo "<td>Anmelden</td>";
+					echo "<td id='tableMitgliedtd'>Anmelden</td>";
 				}
-				echo "<td><a href='user_appointment_detail.php?id=".$appointment->getId()."'>Details</a></td>";
+				//echo "<td id='tableMitgliedtd'><a href='user_appointment_detail.php?id=".$appointment->getId()."'>Details</a></td>";
 				echo "</tr>";
 			 }?>
 	</table>

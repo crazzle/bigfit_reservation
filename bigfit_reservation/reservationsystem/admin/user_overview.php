@@ -35,10 +35,10 @@ sec_session_start();
 					<h1>Mitgliederliste</h1> <!-- Mitgliederübersicht -->
 					<table id="tableMitglied">
 						<tr>
-							<td id="tableMitgliedtd">ID</td>
-							<td id="tableMitgliedtd">Vorname</td>
-							<td id="tableMitgliedtd">Nachname</td>
-							<td id="tableMitgliedtd">E-Mail</td>
+							<td id="tableMitgliedtd"><b>ID</b></td>
+							<td id="tableMitgliedtd"><b>Vorname</b></td>
+							<td id="tableMitgliedtd"><b>Nachname</b></td>
+							<td id="tableMitgliedtd"><b>E-Mail</b></td>
 						</tr>
 					<?php
 					foreach ( all_users ( $mysqli ) as $nutzer ) {

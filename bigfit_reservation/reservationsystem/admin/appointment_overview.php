@@ -93,19 +93,20 @@ sec_session_start ();
 					<h1>Termin&uumlbersicht</h1>
 					<table id="tableMitglied">
 					<tr>
-					<td id="tableTermintd">Datum</td>
-					<td id="tableTermintd">Beginn</td>
-					<td id="tableTermintd">Ende</td>
-					<td id="tableTermintd">Teilnehmer</td>
-					<td id="tableTermintd">Max. Teilnehmer</td>
+					<td id="tableTermintd"><b>Datum</b></td>
+					<td id="tableTermintd"><b>Beginn</b></td>
+					<td id="tableTermintd"><b>Ende</b></td>
+					<td id="tableTermintd"><b>Teilnehmer</b></td>
+					<td id="tableTermintd"><b>Max. Teilnehmer</b></td>
 					</tr>
 					<?php
+					setlocale(LC_TIME, "de_DE");
 							foreach ( all_appointments ( $mysqli ) as $appointment ) {
 								$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());
 								echo "<tr>";
-								echo "<td id='tableTermintd'>".$appointment->getDatum()."</td>";
-								echo "<td id='tableTermintd'>".$appointment->getBeginn()."</td>";
-								echo "<td id='tableTermintd'>".$appointment->getEnde()."</td>";
+								echo "<td id='tableMitgliedtd'>".strftime('%d %b %Y', strtotime($appointment->getDatum()))."</td>";
+								echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getBeginn()))."</td>";
+								echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getEnde()))."</td>";
 								echo "<td id='tableTermintd'>".$subscribers."</td>";
 								echo "<td id='tableTermintd'>".$appointment->getMaxAnzahl()."</td>";
 								echo "<td id='tableTermintd'><a href='appointment_overview.php?delete=".$appointment->getId()."'>Loeschen</a></td>";

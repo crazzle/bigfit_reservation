@@ -17,7 +17,7 @@ function all_appointments($mysqli) {
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );
 
 		$ctr = 0;
-		$eintraege = [];
+		$eintraege = array();
 		while ( mysqli_stmt_fetch ( $stmt ) ) {
 			$eintraege [$ctr] = new Termin ( $id, $datum, $beginn, $ende, $teilnehmer );
 			$ctr ++;
@@ -37,7 +37,7 @@ function upcoming_appointments($mysqli, $count, $user_id) {
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );
 
 		$ctr = 0;
-		$eintraege = [];
+		$eintraege = array();
 		while ( mysqli_stmt_fetch ( $stmt ) ) {
 			$eintraege [$ctr] = new Termin ( $id, $datum, $beginn, $ende, $teilnehmer );
 			$ctr ++;
@@ -73,7 +73,7 @@ function subscribed_upcoming_appointments($mysqli, $user_id) {
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );
 
 		$ctr = 0;
-		$eintraege = [];
+		$eintraege = array();
 		while ( mysqli_stmt_fetch ( $stmt ) ) {
 			$eintraege [$ctr] = new Termin ( $id, $datum, $beginn, $ende, $teilnehmer );
 			$ctr ++;

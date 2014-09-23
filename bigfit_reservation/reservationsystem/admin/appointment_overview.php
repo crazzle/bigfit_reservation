@@ -109,7 +109,7 @@ sec_session_start ();
 								echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getEnde()))."</td>";
 								echo "<td id='tableTermintd'>".$subscribers."</td>";
 								echo "<td id='tableTermintd'>".$appointment->getMaxAnzahl()."</td>";
-								echo "<td id='tableTermintd'><a href='appointment_overview.php?delete=".$appointment->getId()."'>Loeschen</a></td>";
+								echo "<td id='tableTermintd'><a href='appointment_overview.php?delete=".$appointment->getId()."'>L&oumlschen</a></td>";
 								echo "</tr>";
 							 }?>
 					</table>
@@ -123,7 +123,7 @@ sec_session_start ();
 						<table id="tableFormular">
 							
 							<tr>
-								<td align="right">Datum auswaehlen:</td>
+								<td align="right">Datum ausw&aumlhlen:</td>
 								<td><input type="text" id="datepicker" name='date'>
 									<div id="wrongDate" style="display: none;">Bitte Datum im Format
 									DD.MM.YYYY eingeben.</div></td>

@@ -47,7 +47,7 @@ sec_session_start();
 						echo "<td id='tableMitgliedtd'>".$nutzer->getVorname()."</td>";
 						echo "<td id='tableMitgliedtd'>".$nutzer->getNachname()."</td>";
 						echo "<td id='tableMitgliedtd'>".$nutzer->getEmail()."</td>";
-						echo "<td id='tableMitgliedtd'><a href='user_overview.php?delete=".$nutzer->getId()."'>Loeschen</a></td>";
+						echo "<td id='tableMitgliedtd'><a href='user_overview.php?delete=".$nutzer->getId()."'>L&oumlschen</a></td>";
 						echo "</tr>";
 					 }?>
 					</table>

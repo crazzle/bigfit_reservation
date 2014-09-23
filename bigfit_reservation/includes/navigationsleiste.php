@@ -32,12 +32,17 @@
 					
 					echo '<td><a '; if($thisPage=="profile"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_profile.php">Profil</a></td>';
 					
-					echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Anmelden</a></td>'; 
-				
-					echo '<td><a '; if($thisPage=="appoverview"){echo 'class="chosen"';} echo ' href="'. toRoot() .'reservationsystem/user/user_appointment_overview.php">Meine Termine</a></td> ';
-				
-					echo '<td><a href="'. toRoot() . 'includes/logout.php">Ausloggen</a></td>'; 
-					echo '</tr>'
+					?>
+					<?php if (!admin_check($mysqli) == true) : ?>
+						<?php 
+						echo '<td><a '; if($thisPage=="appapply"){echo 'class="chosen"';} echo ' href="'. toRoot() . 'reservationsystem/user/user_appointment_applies.php">Anmelden</a></td>'; 
+					
+						echo '<td><a '; if($thisPage=="appoverview"){echo 'class="chosen"';} echo ' href="'. toRoot() .'reservationsystem/user/user_appointment_overview.php">Meine Termine</a></td> ';
+						?>
+					<?php endif;?>
+					<?php 
+						echo '<td><a href="'. toRoot() . 'includes/logout.php">Ausloggen</a></td>'; 
+						echo '</tr>'
 					?>
 				</table>
 				<div class= "Navigation_Botton"></div>

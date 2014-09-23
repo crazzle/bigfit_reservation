@@ -2,18 +2,18 @@
 include_once 'psl-config.php';
 include_once 'klassen/Mitgliedseintrag.php';
 function all_users($mysqli) {
-	if ($stmt = $mysqli->prepare ( "SELECT id, vorname, nachname, email
+	if ($stmt = $mysqli->prepare ( "SELECT id, vorname, nachname, email, rolle
 			FROM members" )) {
 			$stmt->execute (); // Execute the prepared query.
 
 			/* bind variables to prepared statement */
-			mysqli_stmt_bind_result ( $stmt, $id, $vorname, $nachname, $email );
+			mysqli_stmt_bind_result ( $stmt, $id, $vorname, $nachname, $email, $rolle );
 
 			/* fetch values */
 			$ctr = 0;
 			$eintraege = array();
 			while ( mysqli_stmt_fetch ( $stmt ) ) {
-				$eintraege [$ctr] = new Mitgliedseintrag ( $id, $vorname, $nachname, $email );
+				$eintraege [$ctr] = new Mitgliedseintrag ( $id, $vorname, $nachname, $email, $rolle );
 				$ctr ++;
 			}
 			return $eintraege;

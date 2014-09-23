@@ -11,7 +11,7 @@ function add_appointment($mysqli, $datum, $teilnehmer, $beginn, $ende) {
 }
 function all_appointments($mysqli) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
-		FROM termine order by datum desc" )) {
+		FROM termine where datum >= CURDATE() order by datum desc" )) {
 		$stmt->execute (); 
 
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );

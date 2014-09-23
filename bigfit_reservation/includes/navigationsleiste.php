@@ -50,7 +50,7 @@
 					<td><a href="http://www.bigfitboxclub.de/">Startseite</a></td> 
 				
 					<?php 
-					echo '<td><a href="'. toRoot() .'login.php">Login</a></td> ';
+					echo '<td><a href="'. toRoot() .'index.php">Login</a></td> ';
 				
 					echo '<td></td>'; 
 				

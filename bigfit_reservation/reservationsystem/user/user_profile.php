@@ -60,7 +60,7 @@ $userprofile = load_user ( $mysqli );
 			</form>
 	
 	<?php else : ?>
-		<a href='../../login.php'>Neu einloggen</a>.
+		<a href='../../index.php'>Neu einloggen</a>.
 	<?php endif;?>
 	</div>
 </body>

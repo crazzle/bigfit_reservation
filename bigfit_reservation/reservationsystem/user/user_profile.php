@@ -63,18 +63,18 @@ $userprofile = load_user ( $mysqli );
 				</td>
 				<td id="tableMitgliedtdOvrechts">
 					<ul>
-						<li>Benutzernamen duerfen nur Ziffern, Gross- und Kleinbuchstaben und
+						<li>Benutzernamen d&uumlrfen nur Ziffern, Gross- und Kleinbuchstaben und
 							Unterstriche enthalten.</li>
-						<li>E-Mail-Adressen muessen ein gueltiges Format haben.</li>
-						<li>Passwoerter muessen mindest sechs Zeichen lang sein.</li>
-						<li>Passwoerter muessen enthalten
+						<li>E-Mail-Adressen m&uumlssen ein g&uumlltiges Format haben.</li>
+						<li>Passw&oumlrter m&uumlssen mindest sechs Zeichen lang sein.</li>
+						<li>Passw&oumlrter m&uumlssen enthalten
 							<ul>
 								<li>mindestens einen Grossbuchstaben (A..Z)</li>
-								<li>mindestens einen Kleinbuchstabenr (a..z)</li>
+								<li>mindestens einen Kleinbuchstaben (a..z)</li>
 								<li>mindestens eine Ziffer (0..9)</li>
 							</ul>
 						</li>
-						<li>Das Passwort und die Bestaetigung muessen exakt uebereinstimmen.</li>
+						<li>Das Passwort und die Best&aumltigung m&uumlssen exakt &uumlbereinstimmen.</li>
 					</ul>
 				</td>
 			</tr>

@@ -28,7 +28,7 @@ sec_session_start ();
 		}?>
 	<?php include_once '../../includes/navigationsleiste.php'; ?>
 	<div class="content">
-	<h1>Terminuebersicht</h1>
+	<h1>Termin&uumlbersicht</h1>
 	<p>
 	<table id="tableOverview">
 	<tr>

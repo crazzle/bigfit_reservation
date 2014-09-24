@@ -84,7 +84,7 @@ function subscribed_upcoming_appointments($mysqli, $user_id) {
 	}
 }
 function unsubscribe_upcoming_appointment($mysqli, $id, $user_id) {
-	if ($stmt = $mysqli->prepare ( "DELETE FROM members_termine_anmeldung WHERE termin_id = ".$id." and members_id = ".$user_id )){
+	if ($stmt = $mysqli->prepare ( "DELETE FROM members_termine_anmeldung WHERE termin_id = ".$id." AND members_id = ".$user_id )){
 		$stmt->execute ();
 			return true;
 	} else {
@@ -124,6 +124,8 @@ function load_appointment ($mysqli, $tid){
 			$count++;
 			$appointment [$count] = getCurrentSubscriberCountForAppointment($mysqli, $tid);
 			$count++;
+			$appointment [$count] = $teilnehmer;
+			$count++;
 
 			return $appointment;
 	} else {
@@ -133,12 +135,16 @@ function load_appointment ($mysqli, $tid){
 }
 
 function load_appointment_members ($mysqli, $tid){
-	if ($stmt = $mysqli->prepare ( "SELECT vorname, nachname
-			FROM members" )) {
+	if ($stmt = $mysqli->prepare ( "SELECT mem.vorname as vorname, 
+			mem.nachname as nachname,
+			mem.id as mid
+			FROM members mem
+			JOIN members_termine_anmeldung mta ON mta.members_id = mem.id
+			WHERE mta.termin_id = ".$tid )) {
 			$stmt->execute (); // Execute the prepared query.
 
 			/* bind variables to prepared statement */
-			mysqli_stmt_bind_result ( $stmt, $vorname, $nachname );
+			mysqli_stmt_bind_result ( $stmt, $vorname, $nachname, $mid);
 
 			/* fetch values */
 			$ctr = 0;
@@ -146,6 +152,7 @@ function load_appointment_members ($mysqli, $tid){
 			while ( mysqli_stmt_fetch ( $stmt ) ) {
 				$eintraege [$ctr][0] = $vorname;
 				$eintraege [$ctr][1] = $nachname;
+				$eintraege [$ctr][2] = $mid;
 				$ctr ++;
 			}
 			return $eintraege;

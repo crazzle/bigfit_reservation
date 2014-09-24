@@ -53,7 +53,7 @@ sec_session_start ();
 				}else{
 					echo "<td id='tableMitgliedtd'>Anmelden</td>";
 				}
-				//echo "<td id='tableMitgliedtd'><a href='user_appointment_detail.php?id=".$appointment->getId()."'>Details</a></td>";
+				echo "<td id='tableMitgliedtd'><a href='user_appointment_details.php?tid=".$appointment->getId()."'>Details</a></td>";
 				echo "</tr>";
 			 }?>
 	</table>

@@ -103,4 +103,56 @@ function getCurrentSubscriberCountForAppointment($mysqli, $id){
 		return false;
 	}
 }
+function load_appointment ($mysqli, $tid){
+	if ($stmt = $mysqli->prepare ( "SELECT datum, beginn, ende, teilnehmer
+			FROM termine where id = ".$tid )) {
+			$stmt->execute ();// Execute the prepared query.
+
+			mysqli_stmt_bind_result ( $stmt, $datum, $beginn, $ende, $teilnehmer );
+
+			$stmt->store_result ();
+
+			/* fetch user */
+			$appointment = array();
+			$count = 0;
+			mysqli_stmt_fetch($stmt);
+			$appointment [$count] = DateTime::createFromFormat ( 'Y-m-d', $datum )->format ( 'D, d M Y' );
+			$count++;
+			$appointment [$count] = DateTime::createFromFormat ( 'H:i:s', $beginn )->format ( 'H:i' );
+			$count++;
+			$appointment [$count] = DateTime::createFromFormat ( 'H:i:s', $ende )->format ( 'H:i' );
+			$count++;
+			$appointment [$count] = getCurrentSubscriberCountForAppointment($mysqli, $tid);
+			$count++;
+
+			return $appointment;
+	} else {
+		// Not found
+		return false;
+	}
+}
+
+function load_appointment_members ($mysqli, $tid){
+	if ($stmt = $mysqli->prepare ( "SELECT vorname, nachname
+			FROM members" )) {
+			$stmt->execute (); // Execute the prepared query.
+
+			/* bind variables to prepared statement */
+			mysqli_stmt_bind_result ( $stmt, $vorname, $nachname );
+
+			/* fetch values */
+			$ctr = 0;
+			$eintraege = array();
+			while ( mysqli_stmt_fetch ( $stmt ) ) {
+				$eintraege [$ctr][0] = $vorname;
+				$eintraege [$ctr][1] = $nachname;
+				$ctr ++;
+			}
+			return $eintraege;
+	} else {
+		// Nicht eingeloggt
+		return false;
+	}
+
+}
 ?>

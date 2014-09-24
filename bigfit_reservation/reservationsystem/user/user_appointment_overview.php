@@ -48,7 +48,7 @@ sec_session_start ();
 				echo "<td id='tableMitgliedtd'>".$appointment->getMaxAnzahl()."</td>";
 				echo "<td id='tableMitgliedtd'>".$subscribers."</td>";
 				echo "<td id='tableMitgliedtd'><a href='user_appointment_overview.php?unapply=".$appointment->getId()."'>Abmelden</a></td>";
-				echo "<td><a href='user_appointment_details.php?tid=".$appointment->getId()."'>Details</a></td>";
+				echo "<td id='tableMitgliedtd'><a href='user_appointment_details.php?tid=".$appointment->getId()."'>Details</a></td>";
 				echo "</tr>";
 			 }?>
 	</table>

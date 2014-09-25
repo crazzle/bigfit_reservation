@@ -27,11 +27,11 @@ function all_appointments($mysqli) {
 		return false;
 	}
 }
-function upcoming_appointments($mysqli, $count, $user_id) {
+function upcoming_appointments($mysqli, $user_id) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
 		FROM termine WHERE id not in 
 		(select termin_id from members_termine_anmeldung where termin_id = id and members_id = ".$user_id.") 
-		order by datum desc limit 0, ".$count )) {
+		and datum >= CURDATE() order by datum desc")) {
 		$stmt->execute ();
 
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );
@@ -67,7 +67,7 @@ function subscribed_upcoming_appointments($mysqli, $user_id) {
 	if ($stmt = $mysqli->prepare ( "SELECT id, datum, teilnehmer, beginn, ende
 		FROM termine WHERE id in
 		(select termin_id from members_termine_anmeldung where termin_id = id and members_id = ".$user_id.")
-		order by datum desc")) {
+		and datum >= CURDATE() order by datum desc")) {
 		$stmt->execute ();
 
 		mysqli_stmt_bind_result ( $stmt, $id, $datum, $teilnehmer, $beginn, $ende );

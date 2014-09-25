@@ -9,6 +9,7 @@ if (isset($_GET['tid'])){
 	$tid = $_GET['tid'];
 }
 $appointment = load_appointment ( $mysqli, $tid );
+setlocale(LC_TIME, "de_DE");
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,22 +18,12 @@ $appointment = load_appointment ( $mysqli, $tid );
 <script type='text/JavaScript' src='../../js/sha512.js'></script>
 <script type='text/JavaScript' src='../../js/forms.js'></script>
 <link rel='stylesheet' type='text/css' href='../../css/bigfit_template.css'>
-<?php if (isset ( $_POST ['op'] ) && isset ( $_POST ['np'] ) && isset ( $_POST ['cp'] )) {
-	$oldpwd = $_POST ['op'];
-	$newpass = $_POST ['np'];
-	$confpass = $_POST ['cp'];
-	if (update_user ( $mysqli, $oldpwd, $confpass )) {
-		echo "<script type=text/JavaScript>alert('Passwort erfolgreich geändert!');</script>";
-	} else {
-		echo "<script type=text/JavaScript>alert('Das eingegebene alte Passwort ist falsch!');</script>";
-	}
-}?>
 </head>
 <body>
 <?php include_once '../../includes/navigationsleiste.php'; ?>
 <?php if (login_check($mysqli) == true) : ?>
 <div class="content">
-<h1>Termindetails für <?php echo $appointment[0]?></h1>
+<h1>Termindetails für <?php echo strftime('%d %b %Y', strtotime($appointment[0]))?></h1>
 <h3><?php echo "Von ".$appointment[1]." bis ".$appointment[2]." Uhr"?></h3>
 <table id="tableMitgliedOverview">
 			<tr>
@@ -92,13 +83,11 @@ $appointment = load_appointment ( $mysqli, $tid );
 				
 			</tr>
 		</table>
-				</td>
-			</tr>
-		</table>		
+					
 				
 	
 	<?php else : ?>
-		<a href='../../login.php'>Neu einloggen</a>.
+		<a href='../../index.php'>Neu einloggen</a>.
 	<?php endif;?>
 
 </div>

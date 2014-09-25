@@ -40,7 +40,7 @@ sec_session_start ();
 	</tr>
 	<?php
 	setlocale(LC_TIME, "de_DE");
-			foreach ( upcoming_appointments ( $mysqli, 6, $_SESSION['user_id']) as $appointment ) {
+			foreach ( upcoming_appointments ( $mysqli, $_SESSION['user_id']) as $appointment ) {
 				$subscribers = getCurrentSubscriberCountForAppointment($mysqli, $appointment->getId());
 				echo "<tr>";
 				echo "<td id='tableMitgliedtd'>".strftime('%a, %d %b %Y', strtotime($appointment->getDatum()))."</td>";

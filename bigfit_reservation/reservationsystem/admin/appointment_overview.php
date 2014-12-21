@@ -96,8 +96,8 @@ sec_session_start ();
 					<td id="tableTermintd"><b>Datum</b></td>
 					<td id="tableTermintd"><b>Beginn</b></td>
 					<td id="tableTermintd"><b>Ende</b></td>
-					<td id="tableTermintd"><b>Teilnehmer</b></td>
-					<td id="tableTermintd"><b>Max. Teilnehmer</b></td>
+					<td id="tableTermintd"><b>Teiln.</b></td>
+					<td id="tableTermintd"><b>Max. Teiln.</b></td>
 					</tr>
 					<?php
 					setlocale(LC_TIME, "de_DE");
@@ -107,8 +107,9 @@ sec_session_start ();
 								echo "<td id='tableMitgliedtd'>".strftime('%d %b %Y', strtotime($appointment->getDatum()))."</td>";
 								echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getBeginn()))."</td>";
 								echo "<td id='tableTermintd'>".strftime('%H:%M', strtotime($appointment->getEnde()))."</td>";
-								echo "<td id='tableTermintd'>".$subscribers."</td>";
-								echo "<td id='tableTermintd'>".$appointment->getMaxAnzahl()."</td>";
+								echo "<td id='tableTermintd' align='center'>".$subscribers."</td>";
+								echo "<td id='tableTermintd' align='center'>".$appointment->getMaxAnzahl()."</td>";
+								echo "<td id='tableMitgliedtd'><a href='appointment_details.php?tid=".$appointment->getId()."'>Details</a></td>";
 								echo "<td id='tableTermintd'><a href='appointment_overview.php?delete=".$appointment->getId()."'>L&oumlschen</a></td>";
 								echo "</tr>";
 							 }?>
